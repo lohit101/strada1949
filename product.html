@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <script src="static/js/anime.min.js"></script>
+    <link rel="stylesheet" href="static/css/base.css">
+    <title>STRADA 1949 | Home</title>
+</head>
+
+<body>
+
+    <div class="menuTest" id="menuTest">
+        <div class="menuLinkWrapper">
+            <a href="/home.html" class="menuLink">HOME</a>
+            <a href="/products.html" class="menuLink">SHOP MEN'S</a>
+            <a href="/products.html" class="menuLink">SHOP WOMEN'S</a>
+            <a href="/products.html" class="menuLink">ACCESSORIES</a>
+            <a href="/products.html" class="menuLink">ALL PRODUCTS</a>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="menuBtn" id="menuBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="27.566" height="10.472" viewBox="0 0 27.566 10.472">
+                <path class="menuOpen" id="Path_10" data-name="Path 10"
+                    d="M36.5,98.5H54.621A1.79,1.79,0,0,0,56.7,96.593a2.046,2.046,0,0,0-2.075-2.155H33.589a1.737,1.737,0,0,1-1.96-1.93,1.759,1.759,0,0,1,1.96-1.953h17.8"
+                    transform="translate(-30.379 -89.294)" fill="none" stroke="#fff" stroke-linecap="round"
+                    stroke-width="2.5" />
+            </svg>
+        </div>
+        <a href="/home.html">
+            <div class="logo">
+                <img src="static/img/logo.png" alt="STRADA 1949">
+            </div>
+        </a>
+        <div class="navLink">
+            <a href="/cart.html">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22"
+                    height="22" viewBox="0 0 22 22">
+                    <image id="icons8-hanger-96" width="22" height="22"
+                        xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAAEwUlEQVR4nO2cTYhWVRjH/8cgS0dzEUlJUYkaNUFBFtmmyAIrCiIwq02LiIh0k0zurKCFtCoiaFtgiwLdVZC1SoyKQCb7mGmRkzZfhemYCjO/Fve+KC/zvufcrzn33vf5be+9z/k//+e+595z33OOZBiGYRiGYRiGYRiGYRiGYRhG23GxBeQBuF3SE5LukTQsaa2kC5LmJI1L+lbSZ5IOOecWYulsHcDjwBHCOQ7sBJbH1t5ogHXAFxmM7+ZnYHPsPBoJcB9wsoD5Hc4Dz8TOp1EA9wJnSjC/wzzwbOy8GgFwE/B3ieZ3OAfcHTu/WgMsA76qwPwOo9TkwbwstoAe7JB0f4Xxb5X0QoXxmwvggKMBd/Ep4HVgOL1mObAZeJuw58YfwGWx860dwJYA834B1veJcRvwe0CcB5Yyt8WoYxf0iOf4f5Iec86N9zrBOTeqZKR81hPr0YzaSqeOBdjiOf6+c+43XxDn3FFJH3hOiz44q2MBrvQc/zhDrP2e4zdmiFUJdSzAN32OHZf0XYZYxzzH12SINRgA1wEnFnlgLgDbM8Za6XkIz1aVR6MBNgCfk3w6ABgHnsoRZ9hTgJ+q0N8a0jv4mgLX7/UU4NMy9RqXANwA/OspwM7YOlsJsB741WP+PLAuttbWAKwm+RSxD5jzmA/wUWzNjQW4HvgkoIvpxTkg+higkaTmz+Y0vsObsfNoLOmdX4QDQB0HoM2A/N0OwGFgZewcGk0B8z8EVsTW33hyGD8BPB9bd2vIYPwY8ApwRWzNrQH/xzWAV4Hh2FpbRWr8LsImaE2TfANaHVt348lovBWiLAoa36sQV8XOq/aUbHw3M1aIHlRsvBWiF0tsvBWiAzAEvEbSPxdhluIf5qZTLUOxfakcyrvjZ0nu3jUkxdwF/FUwZnt/EVRg/CJtWCG64aLxRU3pafwibVohKjAh8wSqCjTUvxB1TLqOmkqnCUlWoDH+tMYKkqr87iLCc6mKJFYAe1LjijCdxlkVIYdVadtFxyIzJOOIpfm3DdgK/FlQdG0GP5Q3KJwAHqxa7EtcnDDbaOO7KakQ88CLVQl8jmSKeF7jR+pofDdpIUYKFGIB2FG2qA3kW7E+1RTju7mkEFM58j5Nn0WEecQczCigNX+CkP8zSjlT34GNhHc9rf0bMGchbimj4TcCGpoFdjMAs87SQuwm7DP43jIa/NrTyCgFVrE0FWAtcMzjzaEyGpr0NPJQCfk0EuBhjzcnfTG8e8YB5yVd3ueUIefcXBbhbYHk7e50n1MuOOf67soSMk3bt5RzkJf5+HKf8gUIKYBvZfrLATHaii/3LKv6F4dkQDLWp59bAN4BNjEACx9INpPalObc7/V8jIABaNC+ocAeSW8VVj9YjDjn9vlOCi3AtUo2RPVtpGEknJV0s3Nu0ndiUJfhnDsp6b2iqgaId0PMlzJsXUwyyv1B0sa8qgaEMUl3OufOhJwc/NBM3/W3SzqVU9gg8I+kJ0PNlzLuF+Sc+1HSNknTGYUNApOStqU7dQWT+bXROXdY0h2SDma9tqUg6YCSbudI1osLbV8P3CXpaUlblYwKry4Sr0HMSJqQ9KWk/c657yPrMQzDMAzDMAzDMAzDMAzDMAyjxvwPFCwnPgkZvjMAAAAASUVORK5CYII=" />
+                </svg>
+            </a>
+        </div>
+    </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="stack" id="stack" style="--stacks: 3;">
+    </div>
+
+
+
+    <div class="prodImgWrapper" id="prodImgWrapper">
+        <!-- <img src="./static/img/tshirt_yellow.png" alt="Product Image" class="prodImg">
+        <img src="./static/img/tshirt_yellow_crop_1.png" alt="Product Image" class="prodImg">
+        <img src="./static/img/tshirt_yellow_crop_2.png" alt="Product Image" class="prodImg"> -->
+    </div>
+
+    <div class="content">
+
+        <h3 class="sectionHeading sectionDetailed">Description</h3>
+        <p class="sectionSubheading">Our 100% cotton oversized t-shirt is the ultimate combination of comfort and style.
+            Made from soft, high-quality cotton, this t-shirt is perfect for casual wear or as a layering piece. The
+            fabric is breathable and durable, ensuring that it will hold up wash after wash.<br><br>The t-shirt has a
+            relaxed fit, with wider sleeves and a looser neckline, and falls at or below the hips for a trendy,
+            oversized silhouette. The fabric is pre-shrunk, so you can expect a consistent fit wash after
+            wash.<br><br>Whether you're running errands or lounging at home, this 100% cotton oversized t-shirt is sure
+            to become a go-to favorite. So, if you want a comfortable and stylish t-shirt that you can wear for any
+            occasion, this is the perfect choice for you.</p>
+
+
+        <h3 class="sectionHeading sectionDetailed sectionAlt">Care Instructions</h3>
+        <div class="descRow">
+            <img class="icon"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADKElEQVRoge2Zy2sUQRDGq2PQ4AOMiokoySnPi94DevWF3lQUPUgIqHjwEYj+D3pQxOhN74qvHAwY8GIE9ZpIhBhIIGL0FMW8fx62hnR2ZnpndtfZiZkPmtntevRX01U9tbMiGTJkyJAhAQDG/l5lCd4Bb5KnVDTeAp98s8APcqivAKlYAOqV609vrsqSf9ZrW7K0ikK7Xoe9CTuQ4TylNMMZyJBeC+4IUAMMAu+BmlJZWf4GgQ0RTFr1OuyTAAc17wYiLHyHZdyKyTvI323L390I+gOqeyhI2KDCyQJOulVvRgdAZwlBdAX46y5gM6l6jUFCA0yrQm2IvAdYAhaBkzoWdVzLP9sLkDHAdcv+BHBK/S8BN4P8AbXK8VfoesAHVerIm28FXqtsFjhvyS4oEYCXQHOEIFqAV2qzAHRZsk5gTmX9QEuebYfKProWeKRKl4F9wDmgD5jX+e/A/gC7o8CU6swBT4DTQDuwRUc7cAZ4avmbAg4H+Duga3mB9gFngb3KDeCxK5AegvEHuAdsd9jWAQ+tu+nCLNAL1Dn87QDus1w3+bjhCuSYKs0DI8Az4CKwM9TI76MeuEouzcaA3zrGgBfAFVcAITfoEvBcOXm7edxl1KRKX6MulDT0hoCrFoF1mkZLwOYE+UUCsEm5zQDVtsx+sosxZlFEvoiIEZEVp0VK0CY5biPGmAVbUBWgHLlVqQA8TkP5gqBAvP4lzYH4eixXIGnsgn1dr4f/JrV8ANbrWT1PtJY6EQAbXLx8O2KMmRORURGpFpGmBDhGRbPkOI0aY2bzhUGpJbK8dSXVCXAEmADGCfrtEA+hhS4SHki5Tq5eEdktIntE5EGJvooKpCw7UmZ4XAIL/V/vSJeITIjIuH4uBc4dCQSwkdyPJV9PUwkA1colfg9odZkVP7mAZuUyFqYTlloi6aoTZ32IuANJU89VsD7WRCCrKrVCAWzVApsmxvuqcoOV79u2FevEe6PXUGZ+cTg0KgfnG1BXaomkI70ipVWhQNJQ8JGe6GsmkFWTWs7TiNz/ic4iSxC7jDHfwoTOHVHD/rJTio9+VxAZMmQojL9O5cS3xzeFSwAAAABJRU5ErkJggg==">
+            <p class="sectionSubheading sectionSubDetail">Machine wash: cold (max 30°C or 90°F)</p>
+        </div>
+
+        <div class="descRow">
+            <img class="icon"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAB/ElEQVRIic3UPWhUURAF4LkhKFEQwSKw2cTggoUgEQJiJfY29pLGQqxMY6EgYqdWQmISonZitLFTEK200EIliIgi8Q+jUSPGyogKn0Xu4rrZZN/6A1548O7cc2bOmfveRPxPCyMY+VfJezCHT+guykstFDgdEd8zJ6WU9hUlPsb+Jpiq+q78NHWBvbgf6MMjXMG6pdRjtGY/irElsGtwIQvvqwY7cBbT2F5H6K5XXOOipw7bjylMYHWj6rsxi0NIjdTXuah1tQfvMNC4aT+BFdzDVWxZqt8o5XvZjEuYxMZlk9eQV2IM3zCxDO4cvmIYKwolryFXe/8eR9FWc9aGI7klc+hqKXlOMp773IvbuIkyOnEdd3M7T2H4d9TPoZz37TiBGbzBcbTnsy58XMpFW6NgRByOiIsppemaWIoINe8LLym9jojzEXGwqPpf/lSsxy3cyGeduIY7qGRMKbsoFykwXv2+sTO35VjdJSccwFvsyrEhDBVVX8l9foUdy+C34Vm+6N5GLlIdYTwiyhHRGRGzETGQUvrQRNTaiDgTEZWImImIqZTSYCNgN+bxJdtvZZQnDGb+Z5TqAatwGU+xtWjiBoX68SSPjo5qsM/CaJ0v9BU0L1LKLh5gU+ChhTG9aGL+QZGTeIHJ6kh+GRE9TXitrucppQ1/Oefi9QPfpYJYosfXBAAAAABJRU5ErkJggg==">
+            <p class="sectionSubheading sectionSubDetail">Do not bleach the garment</p>
+        </div>
+
+        <div class="descRow">
+            <img class="icon"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAB1ElEQVRIia3Vy09TQRTH8YtBV+r/AfwTFgqtbnwg1hhDXBoi/lWIEqKuTFziY+/CmBiqFtwJupP1x0XPNMPtXFsjk9zczMmc3/c85lHhM65WZzzQxscZXKuq6tVZA2K0Ew1+oVuL4gLW8RwDnMQ3wC7uY7YQ+RHkRujiZ4Kgh0O8wybmcTG+eTzC24Ct1sSXxgDxT5BdfMfypBqE6AGe4hjtXLOqT0IcetMWGrfDZ7ukmWdwNyLvRSadKTM4DsgAN4uAaOhhKgs6kyCZeCrLIr5itgR4gPc1gQRZmSSe2feiEmOAl3hcEFoMoW5ma4WtBN7AkxLgAAsNpVgJweX4xiLP1s6hXwKc4HLJKdYk4UbxWHcJvxPgXNPC/xxOzyaXaFSWpuZma+ewXyrRC2wWHFJDO5ntyl+a/BBbJcB6YZuOmlsQGt07Nfse7pQA5w1PYjo0jeKZ31IOiS3dLx60+K8ZnubeJPECZDUCvJ5rVvUJdiKjtUnimc+t8NkqaeYZpLLsxK5q3O+1DAaGp/cIrSJA7d6JlL8ZPiobTj84C2F7gy+4ET6tBCkBxi61aNY9PAuh9GT2sR29qj+ZLfxIgBnD/f162nr/42hV+FSP/CxGZPLhD40zlyJ7oIwbAAAAAElFTkSuQmCC">
+            <p class="sectionSubheading sectionSubDetail">Do not tumble dry the garment</p>
+        </div>
+
+        <div class="descRow">
+            <img class="icon"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADqUlEQVRoge3YXYhVVRgG4LV11GoytB+ZQpuo7CIyiCi7qAijHwgh6iYvw4roorpKHCjoRwgiKKqLEIKKDMSLopugH40R5zKjHITImBpCmBLSCMdRny7Od5rlmX2O52ec06HzwrDn7PV+33rftfZa69s7pT766KOPVoBR84c/MIbncVkvG8lxDI8vqJn5AlbifnySGXqp27o6AjbhRJh5uNt6OgKeDCOTWNJtPW0DBfY3mpVFCy2qHRRFIaW0I37eVcbpCSOBb+N6Q1ljLxmZiOuVXVXRKXA+TmMavTQBc4GpWPBDtW295uzXuK6pbViUUkrYjXE88h+ftl/iOhxax/H1v634JisFvsPG7uhsDLwVGo9mevfkhAFsxkRGGMOGLuo+A9iA7zN9E6F5oIy8DE/jcBbwJW5r0MEaPIX38UPETju3GMWyZtwPYiuOZMGf4saMsxFf4dQ5Fl2GsVancwVeUXknEKI/xt4s6VHsxGO4GZcom+7m+1yLHWYH6FhoWIHhuDfZbvJVeEPlQMrxGi5sV3RNH2uwHTOR+3j0uSrjLMHJ+Gu9CsZivJfNSt3O2shdHaTjkXMmDM05K4I/GbzhVjsqYqqr0/xgTP9HNdO/DStbyFv22O7A2rPEjQX/9laNvJithVtq2tapbAJVHMEIBhvkGwxO7Uayrkk9OyNmUysm7sgepXsa8NarbNNVHMYzsi1S/a19fdOCKnlej9gtzQYsxcEIernJmA3YlwmtHlq1h+0+bR62eDZyvN1swOYIGMfSFjvbaPbVNMd+HZY/eKj6OOb3SwtElcLxufi5rSiKE510Ps+oWwHPAe4N1z9jcbM9LNCjNRQ5ppoh7wrySJPJb8VnmdApbMF5GWcpnsBvGW8v7mzRSGH2zLmgEXFI5YPYDK44S9LrVbbD6ol/FK/iogYxg2Ey336/wE0tmPkp4q5rRBoJ0q4GnKvwrkqpAH+FgVYOxOVh6M/IcToGpb642dg9EXN3PUKBH4N0X0n7arxptkyfDkOXN2ugJOelMQh/R84ZfICrG8R8GNxH6xGqi/yQ7JW3pLNTMXp1O2vD0OoYlGodVx2kOR8aVMoheKFesjMWeSfT34Ghsz62Zr8Fby9LkC/ya3W4IOfBUN2NBA/Evc/LArdG4+86rIfmE8rruHfi/wNVXhHkgZTSwZTSNd0S3CaOpZQuLoriZHVBj6beM5FSSstTSmd8DhrVGx/oUkqVWjC0HsDubuvpo48++vgf4x+uMLF3iNhyxAAAAABJRU5ErkJggg==">
+            <p class="sectionSubheading sectionSubDetail">Do not iron the garment</p>
+        </div>
+
+        <div class="descRow">
+            <img class="icon"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABu0lEQVRIibXWz05TQRQG8BMSoxE27dKWlfx5BUhMaNxZV+BbAPEp+PMGWqLgS4iv0a1UlyRoSNhgMIbFz0Wndri57e0Vvcks7jnf+b4zZ2bOTKCPTpR8WMQuPmGAH2kMkm0H7QmxG+gHOviei6CNI1ziPTaxhPk0lrGVfJfooVUgH3PmIniJb9hDoyy7QqYN7OMC3bKEc5ErnGOtirhEaD3FXuXkcxlmPiJuIuJBRDyqKxARD1PsTUQ8Lqq3U1nWJk5xevZ5idcTVysHHGGvLKAOeWY7QG/0s5h2QqMqcBbyZG8mznbgNd5NIHiWCJ7X8SX/CXYiHZjNmiWYZXav8DHwFU8nAYvZVmWexSxjELjGwjRwIetZF38B13NVwHt/+IKlCszflGgFZ4FTbE0B3nuRd3FclXkdX/J/wPaoTfyvg9YaGXrYr0M+DYtDvM1BLcN+/q+a3QWeFEFdw35ei7xE5BwvRvb8HIz6+G1E/KorkGJuE8fPovpGNsWuYT8/QHOGzJup5uVXpuIFHX/WpJd2wnHa0yvGl/5qsp0kzJu85ndETH+2tA2fJqc4M362fE62bfnNdTe2g/5vOfpkaA3oC34AAAAASUVORK5CYII=">
+            <p class="sectionSubheading sectionSubDetail">Do not dry-clean the garment</p>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="buyWindow">
+        <div class="windowPrice buyElement">
+            <p class="heroSubheading">Price:</p>
+            <p class="heroHeading" id="productPrice"></p>
+        </div>
+        <div class="windowSize buyElement">
+            <p class="heroSubheading">Size:</p>
+            <div class="sizeSelectContainer">
+                <p class="sizeSelectLi" data-index="XS">XS</p>
+                <p class="sizeSelectLi" data-index="S">S</p>
+                <p class="sizeSelectLi" data-index="M">M</p>
+                <p class="sizeSelectLi" data-index="L">L</p>
+                <p class="sizeSelectLi" data-index="XL">XL</p>
+                <p class="sizeSelectLi" data-index="XXL">XXL</p>
+                <p class="sizeSelectLi" data-index="XXXL">XXXL</p>
+            </div>
+        </div>
+        <div class="swipeContainer buyElement">
+            <input id="confirm" type="range" value="0" min="0" max="100" step="1" />
+            <p class="swipeInstruction" id="swipeInstruction">Swipe to bag</p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="footer">
+        <p class="footerText">All Rights Reserved</p>
+        <p class="footerText">&copy; STRADA 1949 Clothing</p>
+    </div>
+
+    <script src="static/js/app.js"></script>
+    <script src="static/js/home.js"></script>
+    <script>
+
+        let paramString = window.location.href.split('?')[1];
+        let queryString = new URLSearchParams(paramString);
+
+        for (let pair of queryString.entries()) {
+            var id = pair[1];
+        }
+
+        fetch('/static/js/input.json')
+            .then(response => response.json())
+            .then(data => {
+
+                var stack = document.getElementById("stack");
+
+                var elemP = document.createElement("input");
+                elemP.setAttribute("type", "hidden");
+                elemP.setAttribute("id", "productID");
+                elemP.setAttribute("value", id);
+                stack.appendChild(elemP);
+
+                var elemP = document.createElement("span");
+                elemP.setAttribute("style", "--index: 0");
+                elemP.setAttribute("id", "productHeading");
+                elemP.appendChild(document.createTextNode(data[id]["name"]));
+                stack.appendChild(elemP);
+
+                var elemP = document.createElement("span");
+                elemP.setAttribute("style", "--index: 1");
+                elemP.appendChild(document.createTextNode(data[id]["name"]));
+                stack.appendChild(elemP);
+
+                var elemP = document.createElement("span");
+                elemP.setAttribute("style", "--index: 2");
+                elemP.appendChild(document.createTextNode(data[id]["name"]));
+                stack.appendChild(elemP);
+
+                var productPrice = document.getElementById("productPrice");
+
+                productPrice.appendChild(document.createTextNode(data[id]["displayPrice"]));
+
+                var prodImgWrapper = document.getElementById("prodImgWrapper");
+
+                var elemP = document.createElement("img");
+                elemP.setAttribute("src", data[id]["img"]);
+                elemP.setAttribute("class", "prodImg");
+                elemP.setAttribute("alt", "Product Image");
+                prodImgWrapper.appendChild(elemP);
+
+            })
+
+            .catch(err => {
+                console.error('An error ocurred: ', err);
+            });
+
+    </script>
+
+    <script>
+
+        console.log(sessionStorage);
+
+        try {
+
+            var session = sessionStorage.getItem(id);
+
+            if (session) {
+                console.log(session, "exists in storage");
+                document.querySelector(".buyWindow").style.opacity = "0";
+                document.querySelector(".buyWindow").style.pointerEvents = "none";
+            }
+
+            else {
+                console.log("Item does not exist in storage");
+            }
+
+        }
+
+        catch (error) {
+
+            console.log("Error has occurred");
+
+        }
+
+    </script>
+
+</body>
+
+</html>

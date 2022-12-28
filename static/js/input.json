@@ -1,0 +1,25 @@
+{
+    "0" : {
+        "name" : "Yellow Oversized T-Shirt",
+        "price" : "1200",
+        "displayPrice" : "₹1,200",
+        "img" : "./static/img/tshirt_yellow.png",
+        "href" : "0"
+    },
+    
+    "1" : {
+        "name" : "Black Oversized T-Shirt",
+        "price" : "1100",
+        "displayPrice" : "₹1,100",
+        "img" : "./static/img/tshirt_black.png",
+        "href" : "1"
+    },
+    
+    "2" : {
+        "name" : "Pink Oversized T-Shirt",
+        "price" : "800",
+        "displayPrice" : "₹800",
+        "img" : "./static/img/tshirt_black.png",
+        "href" : "2"
+    }
+}
