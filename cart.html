@@ -116,6 +116,8 @@
 
     <button onclick="sessionStorage.clear();">Clear Storage</button>
 
+    <dom id="clear"></dom>
+
 
 
 
@@ -215,6 +217,14 @@
 
         var log = Object.keys(sessionStorage);
         console.log(log);
+
+        var dom = document.getElementById("dom");
+
+        for (var j = 0; j <= log.length - 1; j++) {
+            console.log(log[j]);
+        }
+
+        for (i = 0; )
 
     </script>
 
