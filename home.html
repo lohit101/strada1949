@@ -114,50 +114,57 @@
         <span style="--index: 2;">New in</span>
     </div>
 
-    <!-- PRODUCT CARD TEST -->
 
-    <a href="/product.html">
 
-        <div class="productCard">
 
-            <img src="./static/img/tshirt_yellow.png" alt="T-Shirt Black" class="productImg">
 
-            <div class="details">
 
-                <ul class="testul">
-                    <li class="testli">Yellow Oversized T-Shirt</li>
-                    <li class="testli">Yellow Oversized T-Shirt</li>
-                </ul>
 
-                <p class="price">₹1,200</p>
+
+
+
+    <div id="productCardInsert">
+
+        <!-- <a href="/product.html">
+
+            <div class="productCard">
+
+                <img src="./static/img/tshirt_yellow.png" alt="T-Shirt Black" class="productImg">
+
+                <div class="details">
+
+                    <ul class="testul">
+                        <li class="testli">Yellow Oversized T-Shirt</li>
+                        <li class="testli">Yellow Oversized T-Shirt</li>
+                    </ul>
+
+                    <p class="price">₹1,200</p>
+                </div>
+
             </div>
+        </a>
 
-        </div>
-    </a>
+        <a href="/product.html">
 
-    <!-- END -->
+            <div class="productCard">
 
-    <a href="/product.html">
+                <img src="./static/img/tshirt_black.png" alt="T-Shirt Black" class="productImg">
 
-        <div class="productCard">
+                <div class="details">
 
-            <img src="./static/img/tshirt_black.png" alt="T-Shirt Black" class="productImg">
+                    <ul class="testul">
+                        <li class="testli">Black Oversized T-Shirt</li>
+                        <li class="testli">Black Oversized T-Shirt</li>
+                    </ul>
 
-            <div class="details">
+                    <p class="price">₹1,100</p>
+                </div>
 
-                <ul class="testul">
-                    <li class="testli">Black Oversized T-Shirt</li>
-                    <li class="testli">Black Oversized T-Shirt</li>
-                </ul>
-
-                <p class="price">₹1,100</p>
             </div>
-
-        </div>
-    </a>
+        </a> -->
 
 
-
+    </div>
 
 
 
@@ -231,6 +238,84 @@
 
     <script src="static/js/app.js"></script>
     <script src="static/js/home.js"></script>
+
+    <script type="module">
+
+        fetch('/static/js/input.json')
+            .then(response => response.json())
+            .then(data => {
+
+                var count = 0;
+
+                for (let key in data) {
+                    ++count;
+                }
+
+                var keys = Object.keys(data);
+
+                var elemDivList = document.getElementById("productCardInsert");
+
+                for (var i = 0; i < keys.length; i++) {
+                    var elemDiv = elemDivList;
+
+                    var elemP = document.createElement("a");
+                    elemP.setAttribute("href", "/product.html?id=" + keys[i]);
+                    elemDiv.appendChild(elemP);
+                }
+
+                var productTagList = document.getElementsByTagName("a");
+
+                for (var i = 0; i < productTagList.length; i++) {
+                    var elemDiv = productTagList[i];
+
+                    var elemP = document.createElement("div");
+                    elemP.setAttribute("class", "productCard");
+                    elemDiv.appendChild(elemP);
+                }
+
+                var productTagList = document.querySelectorAll(".productCard");
+
+                for (var i = 0; i < productTagList.length; i++) {
+
+                    if (data[i]["img"] !== undefined) {
+                        var elemDiv = productTagList[i];
+
+                        var elemP = document.createElement("img");
+                        // elemP.setAttribute("src", data[i]["img"]);
+                        elemP.setAttribute("class", "productImg");
+                        elemP.setAttribute("loading", "lazy");
+                        elemP.setAttribute("alt", "Product Image");
+                        elemDiv.appendChild(elemP);
+                    }
+
+
+                }
+
+                for (var i = 0; i < productTagList.length; i++) {
+                    var elemDiv = productTagList[i];
+
+                    var elemP = document.createElement("div");
+                    elemP.setAttribute("class", "details");
+                    elemDiv.appendChild(elemP);
+                }
+
+                for (var i = 0; i < productTagList.length; i++) {
+                    var elemDiv = productTagList[i];
+
+                    var elemP = document.createElement("p");
+                    elemP.appendChild(document.createTextNode(data[i]["displayPrice"]));
+                    elemP.setAttribute("class", "productDisplayPrice");
+                    elemP.setAttribute("id", "productDisplayPrice");
+                    elemDiv.appendChild(elemP);
+                }
+
+            })
+
+            .catch(err => {
+                console.error('An error ocurred: ', err);
+            });
+
+    </script>
 
 </body>
 

@@ -75,7 +75,7 @@ window.onscroll = () => {
         var myElement = headingList[i];
         var bounding = myElement.getBoundingClientRect();
 
-        if (bounding.top >= 0 && bounding.left >= 0 && bounding.right <= window.innerWidth && bounding.bottom <= (window.innerHeight - 25)) {
+        if (bounding.top >= 0 && bounding.left >= 0 && bounding.right <= window.innerWidth && bounding.bottom <= (window.innerHeight - 100)) {
 
             // console.log('Element ' + i + ' is in the viewport!');
 
