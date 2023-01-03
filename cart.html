@@ -30,11 +30,11 @@
 
     <div class="menuTest" id="menuTest">
         <div class="menuLinkWrapper">
-            <a href="#" class="menuLink">HOME</a>
-            <a href="#" class="menuLink">SHOP MEN'S</a>
-            <a href="#" class="menuLink">SHOP WOMEN'S</a>
-            <a href="#" class="menuLink">ACCESSORIES</a>
-            <a href="#" class="menuLink">ALL PRODUCTS</a>
+            <a href="/home.html" class="menuLink">HOME</a>
+            <a href="/products.html" class="menuLink">SHOP MEN'S</a>
+            <a href="/products.html" class="menuLink">SHOP WOMEN'S</a>
+            <a href="/products.html" class="menuLink">ACCESSORIES</a>
+            <a href="/products.html" class="menuLink">ALL PRODUCTS</a>
         </div>
     </div>
 
@@ -116,7 +116,6 @@
 
     <button onclick="sessionStorage.clear();">Clear Storage</button>
 
-    <dom id="clear"></dom>
 
 
 
@@ -154,75 +153,107 @@
                 var keys = Object.keys(data);
                 var log = Object.keys(sessionStorage);
 
-                var dom = document.getElementById("dom");
-
+                var finalList = {};
+                var xnum = 0;
+                
                 for (let s1 = 0; s1 < keys.length; s1++) {
-
+                    
                     for (let s2 = 0; s2 < log.length; s2++) {
-
-                        if (log[s1] === keys[s2]) {
-                            console.log(s2 + " present");
+                        
+                        if (log[s2] === keys[s1]) {
+                            finalList[xnum] = data[s1];
+                            finalList[xnum]["size"] = sessionStorage[s1].split(",")[1];
+                            ++xnum;
                         }
-
+                        
                     }
                 }
+                
+                console.log(finalList);
+                
+                let listKey = Object.keys(finalList);
 
-                for (i = 0; i < sessionStorage.length; i++) {
-                    if (sessionStorage[i] !== undefined) {
-                        console.log(sessionStorage[i].split(","));
+                var listCount = 0;
+
+                for (let key in listKey) {
+                    ++listCount;
+                }
+
+                var e0 = document.getElementById("productHolderWrapper");
+
+                for (var i = 0; i <= listCount; i++) {
+
+                    if (finalList[i] !== undefined) {
+                        var e1 = document.createElement("a");
+                        e1.setAttribute("href", "/product.html?id=" + finalList[i]["href"]);
+                        e1.setAttribute("class", "createdAnchor");
+                        e0.appendChild(e1);
                     }
+
                 }
 
-                for (var i = 0; i <= count - 1; i++) {
-                    var productHolderWrapper = document.getElementById("productHolderWrapper");
+                e0 = document.querySelectorAll(".createdAnchor");
 
-                    var elemDiv = document.createElement("div");
-                    elemDiv.setAttribute("class", "productHolder");
-                    productHolderWrapper.appendChild(elemDiv);
+                for (i = 0; i < e0.length; i++) {
+                    var en = e0[i];
+
+                    e1 = document.createElement("div");
+                    e1.setAttribute("class", "productHolder");
+                    en.appendChild(e1);
                 }
 
-                var elemDivList = document.querySelectorAll(".productHolder");
+                e0 = document.querySelectorAll(".productHolder");
 
-                for (var i = 0; i < elemDivList.length; i++) {
-                    var elemDiv = elemDivList[i];
+                for (i = 0; i < e0.length; i++) {
+                    en = e0[i];
 
-                    var elemP = document.createElement("a");
-                    elemP.setAttribute("href", "/product.html?id=" + keys[i]);
-                    elemP.setAttribute("class", "productTag");
-                    elemDiv.appendChild(elemP);
+                    e1 = document.createElement("input");
+                    e1.setAttribute("type", "hidden");
+                    e1.setAttribute("class", "productID");
+                    e1.setAttribute("value", finalList[i]["productID"]);
+                    en.appendChild(e1);
                 }
 
-                var productTagList = document.querySelectorAll(".productTag");
+                for (i = 0; i < e0.length; i++) {
+                    en = e0[i];
 
-                for (var i = 0; i < productTagList.length; i++) {
-                    var elemDiv = productTagList[i];
+                    e1 = document.createElement("input");
+                    e1.setAttribute("type", "hidden");
+                    e1.setAttribute("class", "productPrice");
+                    e1.setAttribute("value", finalList[i]["price"]);
+                    en.appendChild(e1);
 
-                    var elemP = document.createElement("img");
-                    elemP.setAttribute("src", data[i]["img"]);
-                    elemP.setAttribute("class", "productImg");
-                    elemP.setAttribute("loading", "lazy");
-                    elemP.setAttribute("alt", "Product Image");
-                    elemDiv.appendChild(elemP);
                 }
 
-                for (var i = 0; i < productTagList.length; i++) {
-                    var elemDiv = productTagList[i];
+                for (i = 0; i < e0.length; i++) {
+                    en = e0[i];
 
-                    var elemP = document.createElement("p");
-                    elemP.appendChild(document.createTextNode(data[i]["name"]));
-                    elemP.setAttribute("class", "productName");
-                    elemP.setAttribute("id", "productName");
-                    elemDiv.appendChild(elemP);
+                    e1 = document.createElement("img");
+                    e1.setAttribute("src", finalList[i]["img"]);
+                    e1.setAttribute("class", "productImg");
+                    e1.setAttribute("alt", finalList[i]["name"]);
+                    e1.setAttribute("loading", "lazy");
+                    en.appendChild(e1);
                 }
 
-                for (var i = 0; i < productTagList.length; i++) {
-                    var elemDiv = productTagList[i];
+                for (i = 0; i < e0.length; i++) {
+                    en = e0[i];
 
-                    var elemP = document.createElement("p");
-                    elemP.appendChild(document.createTextNode(data[i]["displayPrice"]));
-                    elemP.setAttribute("class", "productDisplayPrice");
-                    elemP.setAttribute("id", "productDisplayPrice");
-                    elemDiv.appendChild(elemP);
+                    e1 = document.createElement("p");
+                    e1.setAttribute("class", "productName");
+                    e1.setAttribute("id", "productName");
+                    e1.innerHTML = finalList[i]["name"];
+                    en.appendChild(e1);
+                }
+
+                for (i = 0; i < e0.length; i++) {
+                    en = e0[i];
+
+                    e1 = document.createElement("p");
+                    e1.setAttribute("class", "productDisplayPrice");
+                    e1.setAttribute("id", "productDisplayPrice");
+                    e1.innerHTML = finalList[i]["displayPrice"];
+                    en.appendChild(e1);
                 }
 
             })
