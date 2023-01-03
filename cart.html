@@ -152,6 +152,26 @@
                 }
 
                 var keys = Object.keys(data);
+                var log = Object.keys(sessionStorage);
+
+                var dom = document.getElementById("dom");
+
+                for (let s1 = 0; s1 < keys.length; s1++) {
+
+                    for (let s2 = 0; s2 < log.length; s2++) {
+
+                        if (log[s1] === keys[s2]) {
+                            console.log(s2 + " present");
+                        }
+
+                    }
+                }
+
+                for (i = 0; i < sessionStorage.length; i++) {
+                    if (sessionStorage[i] !== undefined) {
+                        console.log(sessionStorage[i].split(","));
+                    }
+                }
 
                 for (var i = 0; i <= count - 1; i++) {
                     var productHolderWrapper = document.getElementById("productHolderWrapper");
@@ -215,16 +235,7 @@
 
     <script>
 
-        var log = Object.keys(sessionStorage);
-        console.log(log);
 
-        var dom = document.getElementById("dom");
-
-        for (var j = 0; j <= log.length - 1; j++) {
-            console.log(log[j]);
-        }
-
-        for (i = 0; )
 
     </script>
 
