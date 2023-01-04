@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#ffffff">
     <script src="static/js/anime.min.js"></script>
     <link rel="stylesheet" href="static/css/base.css">
-    <title>STRADA 1949 | Home</title>
+    <title></title>
 </head>
 
 <body>
@@ -208,6 +208,8 @@
             .then(response => response.json())
             .then(data => {
 
+                document.title = "STRADA 1949 | " + data[id]["name"];
+
                 var stack = document.getElementById("stack");
 
                 var elemP = document.createElement("input");
@@ -254,27 +256,23 @@
 
     <script>
 
-        console.log(sessionStorage);
-
         try {
 
             var session = sessionStorage.getItem(id);
 
             if (session) {
-                console.log(session, "exists in storage");
                 document.querySelector(".buyWindow").style.opacity = "0";
                 document.querySelector(".buyWindow").style.pointerEvents = "none";
             }
 
             else {
-                console.log("Item does not exist in storage");
             }
 
         }
 
         catch (error) {
 
-            console.log("Error has occurred");
+            console.log("Error: " + error);
 
         }
 

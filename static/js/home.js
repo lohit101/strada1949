@@ -31,8 +31,6 @@ try {
                     productHeading,
                     size
                 ]);
-                console.log(sessionStorage);
-                // sessionStorage.clear();
             }
 
             else {

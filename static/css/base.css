@@ -454,9 +454,46 @@ body {
     color: white;
 }
 
+.cartProductFlex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .productDisplayPrice {
     font-weight: 300;
     color: lightgray;
+}
+
+.productDisplaySizeWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightgray;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    padding: .15rem;
+}
+
+.productDisplaySize {
+    color: black;
+    font-size: .5rem;
+    font-weight: 700;
+}
+
+.productDelBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .75rem;
+    background-color: #1e1e1e;
+    color: lightgray;
+    font-weight: 300;
+    border: none;
+    border-radius: 5px;
+    padding: .5rem;
+    margin: 1rem 0rem;
 }
 
 
@@ -637,6 +674,83 @@ body {
 #confirm:hover::-webkit-slider-thumb {
     border-color: white;
 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.cartEmptyWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+.tumbleweedWrapper {
+    width: 30%;
+    overflow: hidden;
+    animation: tumbleWrapAnim 5s linear infinite;
+}
+
+@keyframes tumbleWrapAnim {
+    0% {
+        transform: translateX(250%);
+    }
+    80% {
+        transform: translateX(-250%);
+    }
+    100% {
+        transform: translateX(-250%);
+    }
+}
+
+.tumbleweed {
+    width: 100%;
+    margin: 2rem 0rem;
+    animation: tumbleAnim 3s linear infinite;
+}
+
+@keyframes tumbleAnim {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+.cartPara {
+    font-size: 1rem;
+    margin: 2rem 0rem;
+    color: white;
+}
+
+.goShoppingBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1e1e1e;
+    width: 80%;
+    height: 4rem;
+    margin: 2rem 10%;
+    border-radius: 10px;
+    color: white;
+    font-size: .75rem;
 }
 
 
