@@ -31,6 +31,14 @@ try {
                     productHeading,
                     size
                 ]);
+
+                var addedHeading = document.getElementById("addedHeading");
+                var addedWrapper = document.getElementById("addedWrapper");
+                var addedTimer = document.getElementById("addedTimer");
+
+                addedHeading.innerHTML = productHeading;
+                addedWrapper.classList.add("addedWrapperAnim");
+                addedTimer.classList.add("addedAnim");
             }
 
             else {
