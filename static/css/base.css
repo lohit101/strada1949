@@ -596,6 +596,8 @@ body {
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.20);
     backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    -moz-backdrop-filter: blur(30px);
     color: white;
     opacity: 0;
     pointer-events: none;
@@ -734,6 +736,10 @@ body {
 
 
 
+
+
+
+
 #confirm {
     appearance: none !important;
     background: transparent;
@@ -760,6 +766,89 @@ body {
     border-color: white;
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+.billerWrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: #1e1e1e;
+    padding: 1.5rem 1.5rem;
+    margin: 1rem;
+    border-radius: 10px;
+}
+
+.billerWrapper > hr {
+    margin: 1rem 0rem;
+    background-color: grey;
+    border: 1px solid grey;
+}
+
+.billerRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: gray;
+    font-size: .75rem;
+}
+
+.billerRowExtra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: gray;
+    font-size: .75rem;
+}
+
+.couponWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1e1e1e;
+    margin: 0rem 1rem 1rem 1rem;
+    padding: .25rem 1rem;
+    border-radius: 10px;
+}
+
+.couponWrapper > .heroHeading {
+    color: gray;
+    font-size: 1.25rem;
+}
+
+.couponInp {
+    background-color: transparent;
+    color: white;
+    height: 1.5rem;
+    width: 100%;
+    border: none;
+    padding: 1rem;
+}
+
+.checkoutBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0rem 1rem 5rem 1rem;
+    padding: 1.25rem 0rem;
+    width: calc(100% - 2rem);
+    background-color: whitesmoke;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+
 
 
 
@@ -824,8 +913,8 @@ body {
 
 .cartPara {
     font-size: 1rem;
-    margin: 2rem 0rem;
-    color: white;
+    margin: 1rem 0rem 0rem 0rem;
+    color: rgb(123, 123, 123);
 }
 
 .goShoppingBtn {
@@ -837,8 +926,94 @@ body {
     height: 4rem;
     margin: 2rem 10%;
     border-radius: 10px;
-    color: white;
+    color: whitesmoke;
+    font-size: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.formWrapper {
+    display: flex;
+    padding: 1rem;
+}
+
+.checkoutForm {
+    /* background-color: pink; */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.checkoutForm > .stack {
+    margin: 0rem 0rem 1rem 0rem;
+}
+
+.checkoutForm > .stackN {
+    margin: 5rem 0rem 1rem 0rem;
+}
+
+.checkoutForm > .stack > span {
+    font-size: 2rem;
+}
+
+.checkoutForm > .fieldFull > input {
+    width: 100%;
+    padding: 2rem 1rem 1.5rem 1rem;
+    margin: .25rem 0rem;
+    box-sizing: border-box;
+}
+
+.checkoutForm > .fieldHalf > input {
+    padding: 2rem 1rem 1.5rem 1rem;
+    margin: .25rem 0rem;
+    box-sizing: border-box;
+}
+
+.checkoutForm > .fieldHalf > p {
+    padding: 1.5rem 1rem 2rem 1rem;
+    margin: .25rem 10px .25rem 0rem;
+    box-sizing: border-box;
+}
+
+.checkoutForm > div > .couponInp {
+    border-bottom: 1px solid white;
+    /* background: yellow; */
     font-size: .75rem;
+}
+
+.fieldHalf {
+    display: flex;
+    flex-direction: row;
+}
+
+.couponInpPara {
+    width: 20%;
+    margin: 1rem;
+}
+
+.checkoutForm > .checkoutBtn {
+    width: 100%;
+    margin: 2rem 0rem;
 }
 
 

@@ -112,6 +112,20 @@
 
     <div class="productHolderWrapper" id="productHolderWrapper"></div>
 
+    <div class="billerWrapper" id="billerWrapper">
+        <p class="heroHeading">Bill Breakdown</p>
+        <hr>
+    </div>
+
+    <div class="couponWrapper">
+        <p class="heroHeading">%</p>
+        <input type="text" class="couponInp" id="couponInp" name="coupon" placeholder="Enter Discount Code"
+            maxlength="10">
+    </div>
+
+    <button type="button" class="checkoutBtn" id="checkoutBtn">Proceed to Checkout</button>
+    <button type="button" class="checkoutBtn" id="checkoutBtnn">Remove Item</button>
+
 
 
     <div class="cartEmptyWrapper" id="cartEmptyWrapper">
@@ -187,6 +201,8 @@
 
                     var cartEmptyWrapper = document.getElementById("cartEmptyWrapper");
                     cartEmptyWrapper.style.display = "none";
+                    document.getElementById("billerWrapper").style.display = "flex";
+                    document.getElementById("checkoutBtn").style.display = "flex";
 
                     var e0 = document.getElementById("productHolderWrapper");
 
@@ -307,10 +323,113 @@
                         e1.innerHTML = "Remove";
                         en.appendChild(e1);
                     }
+
+                    e0 = document.getElementById("billerWrapper");
+
+                    for (i = 0; i <= listCount; i++) {
+
+                        if (finalList[i] !== undefined) {
+                            e1 = document.createElement("div");
+                            e1.setAttribute("class", "billerRow");
+                            e0.appendChild(e1);
+                        }
+
+                    }
+
+                    e0 = document.querySelectorAll(".billerRow");
+
+                    for (i = 0; i < e0.length; i++) {
+                        en = e0[i];
+
+                        e1 = document.createElement("p");
+                        e1.setAttribute("class", "billerName");
+                        e1.innerHTML = finalList[i]["name"];
+                        en.appendChild(e1);
+                    }
+
+                    for (i = 0; i < e0.length; i++) {
+                        en = e0[i];
+
+                        e1 = document.createElement("p");
+                        e1.setAttribute("class", "billerPrice");
+                        e1.innerHTML = finalList[i]["displayPrice"];
+                        en.appendChild(e1);
+                    }
+
+                    let total = 0;
+
+                    for (i = 0; i <= listCount; i++) {
+
+                        if (finalList[i] !== undefined) {
+                            total += parseInt(finalList[i]["price"])
+                        }
+
+                    }
+
+                    let gst = (5 / 100) * total;
+                    let subtotal = gst + total;
+
+                    e0 = document.getElementById("billerWrapper");
+
+                    e1 = document.createElement("br");
+                    e0.appendChild(e1);
+
+                    let extras0 = ["GST (12%)", "Shipping", "Sub-Total"]
+                    let extras1 = [gst, "0", subtotal]
+
+                    // e1 = document.createElement("div");
+                    // e1.setAttribute("class", "billerRowExtra");
+                    // e0.appendChild(e1);
+
+                    for (i = 0; i < 3; i++) {
+                        e1 = document.createElement("div");
+                        e1.setAttribute("class", "billerRowExtra");
+                        e1.setAttribute("id", "biller" + [i]);
+                        e0.appendChild(e1);
+                    }
+
+                    for (i = 0; i < 3; i++) {
+
+                        e0 = document.getElementById("biller" + [i]);
+
+                        e1 = document.createElement("p");
+                        e1.setAttribute("class", "billerName");
+                        e1.innerHTML = extras0[i];
+                        e0.appendChild(e1);
+
+                    }
+
+                    for (i = 0; i < 3; i++) {
+                        e0 = document.getElementById("biller" + [i]);
+
+                        e1 = document.createElement("p");
+                        if (i === 2) {
+                            e1.setAttribute("class", "heroHeading");
+                        }
+                        else {
+                            e1.setAttribute("class", "billerPrice");
+                        }
+                        e1.innerHTML = "₹" + extras1[i];
+                        e0.appendChild(e1);
+                    }
+
+                    var checkoutBtn = document.getElementById("checkoutBtn");
+
+                    checkoutBtn.addEventListener("click", () => {
+
+                        console.log(finalList);
+                        sessionStorage["passVal"] = JSON.stringify(finalList);
+                        console.log(sessionStorage);
+                        console.log(JSON.parse(sessionStorage["passVal"]));
+                        location.href = "/checkout.html";
+
+                    });
                 }
 
                 else {
                     document.getElementById("cartEmptyWrapper").style.display = "flex";
+                    document.getElementById("billerWrapper").style.display = "none";
+                    document.getElementById("checkoutBtn").style.display = "none";
                 }
 
             })
@@ -327,10 +446,11 @@
             var elem = document.getElementById(id);
             sessionStorage.removeItem(id);
             elem.remove();
+            location.reload();
         }
 
-
     </script>
+    <script src="static/js/cart.js"></script>
 
 </body>
 
