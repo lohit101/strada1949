@@ -1043,7 +1043,7 @@ body {
 }
 
 .confirmWrapper {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     padding: 1rem 0rem;

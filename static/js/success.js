@@ -4,6 +4,11 @@ var confirmWrapper = document.getElementById("confirmWrapper");
 var confirmWrapperN = document.getElementById("confirmWrapperN");
 
 if (windowLocation === "completion=true") {
+    confirmPayment.style.display = "flex";
+    confirmWrapper.style.display = "none";
+}
+
+else if (windowLocation === "completion=true&submission=true") {
     confirmPayment.style.display = "none";
     confirmWrapper.style.display = "flex";
 
@@ -55,19 +60,14 @@ if (windowLocation === "completion=true") {
 
     for (var nk = 0; nk < nkListVal; nk++) {
 
-        orderString += "Product ID: " + passVal[nk]["productID"] + ", Name: " + passVal[nk]["name"] + ", Size: " + passVal[nk]["size"] + "          ";
+        orderString += "Product ID: " + passVal[nk]["productID"] + ", Name: " + passVal[nk]["name"] + ", Size: " + passVal[nk]["size"] + " // ";
 
     }
 
     submission[3].value = orderString;
+    submission[4].value = passData["address1"] + ", " + passData["address2"] + ", " + passData["landmark"] + ", " + passData["city"] + ", " + passData["state"] + ", " + passData["country"] + ", " + passData["zip"]
 
     document.getElementById("submission").submit();
-
-}
-
-else if (windowLocation === "completion=true&submission=true") {
-    confirmPayment.style.display = "none";
-    confirmWrapper.style.display = "flex";
 
     window.addEventListener("beforeunload", () => {
         sessionStorage.clear();

@@ -85,16 +85,11 @@
 
 
 
-    <div class="stack" id="stack" style="--stacks: 3;">
-    </div>
+    <div class="stack" id="stack" style="--stacks: 3;"></div>
 
 
 
-    <div class="prodImgWrapper" id="prodImgWrapper">
-        <!-- <img src="./static/img/tshirt_yellow.png" alt="Product Image" class="prodImg">
-        <img src="./static/img/tshirt_yellow_crop_1.png" alt="Product Image" class="prodImg">
-        <img src="./static/img/tshirt_yellow_crop_2.png" alt="Product Image" class="prodImg"> -->
-    </div>
+    <div class="prodImgWrapper" id="prodImgWrapper"></div>
 
     <div class="content">
 
@@ -228,18 +223,18 @@
                 stack.appendChild(elemP);
 
                 var elemP = document.createElement("span");
-                elemP.setAttribute("style", "--index: 0");
+                elemP.setAttribute("style", "--index: 0; font-size: 3rem;");
                 elemP.setAttribute("id", "productHeading");
                 elemP.appendChild(document.createTextNode(data[id]["name"]));
                 stack.appendChild(elemP);
 
                 var elemP = document.createElement("span");
-                elemP.setAttribute("style", "--index: 1");
+                elemP.setAttribute("style", "--index: 1; font-size: 3rem;");
                 elemP.appendChild(document.createTextNode(data[id]["name"]));
                 stack.appendChild(elemP);
 
                 var elemP = document.createElement("span");
-                elemP.setAttribute("style", "--index: 2");
+                elemP.setAttribute("style", "--index: 2; font-size: 3rem;");
                 elemP.appendChild(document.createTextNode(data[id]["name"]));
                 stack.appendChild(elemP);
 
