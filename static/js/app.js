@@ -41,7 +41,7 @@ window.onscroll = () => {
     }
     
     catch (error) {
-        // console.log(error);
+        console.log(error);
     }
 
     if (!menuToggle) {
@@ -77,15 +77,8 @@ window.onscroll = () => {
 
         if (bounding.top >= 0 && bounding.left >= 0 && bounding.right <= window.innerWidth && bounding.bottom <= (window.innerHeight - 100)) {
 
-            // console.log('Element ' + i + ' is in the viewport!');
-
             var list = headingList[i];
             list.scrollTop = (headingList[i].scrollHeight - 75);
-        }
-
-        else {
-
-            // console.log('Element ' + i + ' is NOT in the viewport!');
         }
     }
 }

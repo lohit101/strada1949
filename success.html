@@ -1,17 +1,510 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <link rel="apple-touch-icon" sizes="57x57" href="static/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="static/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="static/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="static/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="static/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="static/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="static/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="static/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="static/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="static/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/icons/favicon-16x16.png">
+    <link rel="manifest" href="static/icons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="static/icons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <script src="static/js/anime.min.js"></script>
+    <link rel="stylesheet" href="static/css/base.css">
+    <title>STRADA 1949 | Order Summary</title>
+
 <body>
 
-    <script>
-        console.log(JSON.parse(sessionStorage["passVal"]));
-        console.log(JSON.parse(sessionStorage["passData"]));
+    <div class="menuTest" id="menuTest">
+        <div class="menuLinkWrapper">
+            <a href="/home.html" class="menuLink">HOME</a>
+            <a href="/products.html" class="menuLink">SHOP MEN'S</a>
+            <a href="/products.html" class="menuLink">SHOP WOMEN'S</a>
+            <a href="/products.html" class="menuLink">ACCESSORIES</a>
+            <a href="/products.html" class="menuLink">ALL PRODUCTS</a>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="menuBtn" id="menuBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="27.566" height="10.472" viewBox="0 0 27.566 10.472">
+                <path class="menuOpen" id="Path_10" data-name="Path 10"
+                    d="M36.5,98.5H54.621A1.79,1.79,0,0,0,56.7,96.593a2.046,2.046,0,0,0-2.075-2.155H33.589a1.737,1.737,0,0,1-1.96-1.93,1.759,1.759,0,0,1,1.96-1.953h17.8"
+                    transform="translate(-30.379 -89.294)" fill="none" stroke="#fff" stroke-linecap="round"
+                    stroke-width="2.5" />
+            </svg>
+        </div>
+        <a href="/home.html">
+            <div class="logo">
+                <img src="static/img/logo.png" alt="STRADA 1949">
+            </div>
+        </a>
+        <div class="navLink">
+            <a href="/cart.html">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22"
+                    height="22" viewBox="0 0 22 22">
+                    <image id="icons8-hanger-96" width="22" height="22"
+                        xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAAEwUlEQVR4nO2cTYhWVRjH/8cgS0dzEUlJUYkaNUFBFtmmyAIrCiIwq02LiIh0k0zurKCFtCoiaFtgiwLdVZC1SoyKQCb7mGmRkzZfhemYCjO/Fve+KC/zvufcrzn33vf5be+9z/k//+e+595z33OOZBiGYRiGYRiGYRiGYRiGYRhG23GxBeQBuF3SE5LukTQsaa2kC5LmJI1L+lbSZ5IOOecWYulsHcDjwBHCOQ7sBJbH1t5ogHXAFxmM7+ZnYHPsPBoJcB9wsoD5Hc4Dz8TOp1EA9wJnSjC/wzzwbOy8GgFwE/B3ieZ3OAfcHTu/WgMsA76qwPwOo9TkwbwstoAe7JB0f4Xxb5X0QoXxmwvggKMBd/Ep4HVgOL1mObAZeJuw58YfwGWx860dwJYA834B1veJcRvwe0CcB5Yyt8WoYxf0iOf4f5Iec86N9zrBOTeqZKR81hPr0YzaSqeOBdjiOf6+c+43XxDn3FFJH3hOiz44q2MBrvQc/zhDrP2e4zdmiFUJdSzAN32OHZf0XYZYxzzH12SINRgA1wEnFnlgLgDbM8Za6XkIz1aVR6MBNgCfk3w6ABgHnsoRZ9hTgJ+q0N8a0jv4mgLX7/UU4NMy9RqXANwA/OspwM7YOlsJsB741WP+PLAuttbWAKwm+RSxD5jzmA/wUWzNjQW4HvgkoIvpxTkg+higkaTmz+Y0vsObsfNoLOmdX4QDQB0HoM2A/N0OwGFgZewcGk0B8z8EVsTW33hyGD8BPB9bd2vIYPwY8ApwRWzNrQH/xzWAV4Hh2FpbRWr8LsImaE2TfANaHVt348lovBWiLAoa36sQV8XOq/aUbHw3M1aIHlRsvBWiF0tsvBWiAzAEvEbSPxdhluIf5qZTLUOxfakcyrvjZ0nu3jUkxdwF/FUwZnt/EVRg/CJtWCG64aLxRU3pafwibVohKjAh8wSqCjTUvxB1TLqOmkqnCUlWoDH+tMYKkqr87iLCc6mKJFYAe1LjijCdxlkVIYdVadtFxyIzJOOIpfm3DdgK/FlQdG0GP5Q3KJwAHqxa7EtcnDDbaOO7KakQ88CLVQl8jmSKeF7jR+pofDdpIUYKFGIB2FG2qA3kW7E+1RTju7mkEFM58j5Nn0WEecQczCigNX+CkP8zSjlT34GNhHc9rf0bMGchbimj4TcCGpoFdjMAs87SQuwm7DP43jIa/NrTyCgFVrE0FWAtcMzjzaEyGpr0NPJQCfk0EuBhjzcnfTG8e8YB5yVd3ueUIefcXBbhbYHk7e50n1MuOOf67soSMk3bt5RzkJf5+HKf8gUIKYBvZfrLATHaii/3LKv6F4dkQDLWp59bAN4BNjEACx9INpPalObc7/V8jIABaNC+ocAeSW8VVj9YjDjn9vlOCi3AtUo2RPVtpGEknJV0s3Nu0ndiUJfhnDsp6b2iqgaId0PMlzJsXUwyyv1B0sa8qgaEMUl3OufOhJwc/NBM3/W3SzqVU9gg8I+kJ0PNlzLuF+Sc+1HSNknTGYUNApOStqU7dQWT+bXROXdY0h2SDma9tqUg6YCSbudI1osLbV8P3CXpaUlblYwKry4Sr0HMSJqQ9KWk/c657yPrMQzDMAzDMAzDMAzDMAzDMAyjxvwPFCwnPgkZvjMAAAAASUVORK5CYII=" />
+                </svg>
+            </a>
+        </div>
+    </nav>
+
+    <div class="gimmickWrapper" style="transform: translateY(0%);">
+        <div class="gimmick">
+            <div class="gimmickRow" id="gimmickRow1">
+                <p class="gimmickChip">Oversized T-Shirts</p>
+                <p class="gimmickChip">Hoodies</p>
+                <p class="gimmickChip">Joggers</p>
+                <p class="gimmickChip">Cargo Pants</p>
+                <p class="gimmickChip">Accessories</p>
+                <p class="gimmickChip">Denim Jeans</p>
+                <p class="gimmickChip">Flannels</p>
+                <p class="gimmickChip">Yankee's</p>
+            </div>
+            <div class="gimmickRow" id="gimmickRow2">
+                <p class="gimmickChip">Cargo Pants</p>
+                <p class="gimmickChip">Accessories</p>
+                <p class="gimmickChip">Denim Jeans</p>
+                <p class="gimmickChip">Oversized T-Shirts</p>
+                <p class="gimmickChip">Hoodies</p>
+                <p class="gimmickChip">Joggers</p>
+                <p class="gimmickChip">Flannels</p>
+                <p class="gimmickChip">Yankee's</p>
+            </div>
+            <div class="gimmickRow" id="gimmickRow3">
+                <p class="gimmickChip">Denim Jeans</p>
+                <p class="gimmickChip">Flannels</p>
+                <p class="gimmickChip">Yankee's</p>
+                <p class="gimmickChip">Oversized T-Shirts</p>
+                <p class="gimmickChip">Hoodies</p>
+                <p class="gimmickChip">Joggers</p>
+                <p class="gimmickChip">Cargo Pants</p>
+                <p class="gimmickChip">Accessories</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="confirmWrapper" id="confirmWrapper">
+        <div class="confirmPlacement">
+            <hr>
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE20lEQVR4nO1aTWhcVRT+qtUWrOK/LhTFlVSNP23euS8UBkE04B8WoyKKCmIRrQgiLlzURbtoFU1QtEIxtplzJgziT7VR7KK6qy5UtKSxutIu1IpoK1iNNnJmXurLefdl3s/Ma8B+EAjJnXPvd893zz3n3AGO438Cx3iSBD8S47Bj/EmCX0iw1wl2OMazQR231kZxOhYCaruwmOpYHQhut/9zjEedYGa+H2L8TYz3XQN3D05gSeUEVryKkwLBI8TY31qQ4Es7Rne8ExFDSm09XhvF0kpIBGM4LZLInIWE47g8Ps6N45o8RI4SEnwTMm6ohAwxXvcsYIP1WrgN56pk9PdVjDNI0KcydIznSPB5Bw+91HO5rWCc7QQHogkPOcHL/YLL8toJGZeSYJMT/JZC5lPdjK4sOi2yBA3cS4LNJDiv7BzqLfWSE/zlIbSPGri43ARNnKOadYJ1qADBOK50jEkfmcKe0ehBgk9ixioh07cNp5DgLZ/MCp0ZJxhOGKtjNSrAUBMnOsGoJ6C8mMsQCcgxjswxxJjQ6IOKMNQm87YlEzRwfXYrM1hEddzvBD9Hbv12YAtO7eWifX+vNbHMc2ftyy2x6LBvHWCE6BHCOi7SjQoZQ77/D9RxFTGmjcQew4KCel6wM7bApm6eHUaM541Xvj8muVkaHGNNItQyHkyMa+JMEhw0UeyudMOC+4rc0IUlZRcn2Kle8q6tfWHGSe9Ij99aO7R35QtiPJV2CLstqYjEQSWX9pFgDMuNR6Y1gU0MJMEtNgutWFJrOn1OywXzmZt9gzYY48MLQVLzHXpNOGHhGO+YQfdgAUgqDie4w3z2XVgQ4yGtAUiwnRif2UKpG9A5ikhqTlI5l8gUSmMdTiDGqiokZeqg+EYcQFm09Mo4QoxnMkrqA7OI31cyLskz5+AElpjIdbgMBw0MTxh5jKiH8kQplVneeQe7SSQYwwUk+MOTYjd9aYNKypayeSWVS1qtbJcxQow3tYhxdVyBFAR1XOsYv3rIfKxl69GBM1jkGB8WjVIZDvvexCBblXUKv0p0tq9lZLZnZQMXdiNKZQi/232D1id03wG6YF24R//7wzpu6pakZkGMF8w8G2Gh132RFCXqV32U2Pmk7ApLahbE+CpuUzcLKUV/+xAz9hDj6axJox5yPezzkikhKV/SqK0jb9KoIMYD2g1E8Qtyjuu7JSlvGs94D71EdMf8001J9W/FWVFHM1th1S3oJLHappSkvK0pxnfLmzgZeXbCCV4r0nxo3TWCN8pKKhRcbZsPTrA2swG9R4jxUxXtoDTU2u2gKZvxZm48hGPotw06fVmqskFX24XFtkZqrYlxXS5DvgiU1nvqyZMeJ99gslzSSWOjWOoYu2OG1vdk1XbeJpYlPNEmsTvXAU95VqiERKgH25yJiMTXvsZdLmhzLDXECjb3N3F+qQn+i47DnujUIlH2HpqXnGP8EAWBQ8R4pUiN30o79D3RXHYuJqfSnpgPJNjiSUM22QM7+xiq2tZd14a0puIaSGwC6IlOI4XPRBbofeJ7HlN9G7J9nTLilLxsKneILRkeH9ZUIdrBSTsmENyYi0Tb1tpj0mWPXpVuowbuzNQWTRZg05rFauDoqYzKQL+OEf9STev1izEZNQA3alF0LNKe40BF+Bf/jJJAAK/c1wAAAABJRU5ErkJggg==">
+            <hr>
+        </div>
+        <p class="heroHeading">Order Confirmed</p>
+        <p class="orderConfirmedPara">Your order details has been sent to your E-mail. You can track your order with the link sent to you.</p>
+    </div>
+
+
+
+
+
+
+
+    <div class="productHolderWrapper" id="productHolderWrapper"></div>
+
+    <div class="billerWrapper" id="billerWrapper">
+        <p class="heroHeading">Order Summary</p>
+        <hr>
+    </div>
+
+    <div class="billerWrapperN" id="billerWrapperN">
+        <p class="heroHeading">Shipping Details</p>
+        <hr>
+    </div>
+
+    <div class="swipeContainer buyElement swipeConfirm" id="confirmPayment">
+        <input id="confirm" type="range" value="0" min="0" max="100" step="1" />
+        <p class="swipeInstruction" id="swipeInstruction">Proceed to Payment</p>
+    </div>
+
+
+
+    <div class="cartEmptyWrapper" id="cartEmptyWrapper">
+        <div class="tumbleweedWrapper">
+            <img src="/static/img/tumbleweed.png" alt="Tumbleweed Image" class="tumbleweed">
+        </div>
+        <p class="cartPara">Your bag seems to be empty :(</p>
+        <a href="/products.html" class="goShoppingBtn">Go Shopping</a>
+    </div>
+
+
+
+
+    <form action="/success.html?completion=true&submission=true" method="POST" id="submission" netlify></form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="footer">
+        <p class="footerText">All Rights Reserved</p>
+        <p class="footerText">&copy; STRADA 1949 Clothing</p>
+    </div>
+
+    <script src="static/js/app.js"></script>
+    <script type="module">
+
+        fetch('/static/js/input.json')
+            .then(response => response.json())
+            .then(data => {
+
+                var count = 0;
+
+                for (let key in data) {
+                    ++count;
+                }
+
+                var keys = Object.keys(data);
+                var log = Object.keys(sessionStorage);
+
+                var finalList = {};
+                var xnum = 0;
+
+                for (let s1 = 0; s1 < keys.length; s1++) {
+
+                    for (let s2 = 0; s2 < log.length; s2++) {
+
+                        if (log[s2] === keys[s1]) {
+                            finalList[xnum] = data[s1];
+                            finalList[xnum]["size"] = sessionStorage[s1].split(",")[1];
+                            ++xnum;
+                        }
+
+                    }
+                }
+
+                let listKey = Object.keys(finalList);
+
+                var listCount = 0;
+
+                for (let key in listKey) {
+                    ++listCount;
+                }
+
+                if (listKey.length !== 0) {
+
+                    document.getElementById("cartEmptyWrapper").style.display = "none";
+                    document.getElementById("billerWrapper").style.display = "flex";
+                    document.getElementById("billerWrapperN").style.display = "flex";
+
+                    var e0 = document.getElementById("productHolderWrapper");
+
+                    for (var i = 0; i <= listCount; i++) {
+
+                        if (finalList[i] !== undefined) {
+                            var e1 = document.createElement("div");
+                            e1.setAttribute("class", "productHolder");
+                            e1.setAttribute("id", finalList[i]["productID"]);
+                            e0.appendChild(e1);
+                        }
+
+                    }
+
+                    e0 = document.querySelectorAll(".productHolder");
+
+                    for (i = 0; i < e0.length; i++) {
+                        var en = e0[i];
+
+                        e1 = document.createElement("a");
+                        e1.setAttribute("class", "createdAnchor");
+                        e1.setAttribute("href", "product.html?id=" + finalList[i]["productID"]);
+                        en.appendChild(e1);
+                    }
+
+                    e0 = document.querySelectorAll(".createdAnchor");
+
+                    for (i = 0; i < e0.length; i++) {
+                        en = e0[i];
+
+                        e1 = document.createElement("input");
+                        e1.setAttribute("type", "hidden");
+                        e1.setAttribute("class", "productID");
+                        e1.setAttribute("value", finalList[i]["productID"]);
+                        en.appendChild(e1);
+                    }
+
+                    for (i = 0; i < e0.length; i++) {
+                        en = e0[i];
+
+                        e1 = document.createElement("input");
+                        e1.setAttribute("type", "hidden");
+                        e1.setAttribute("class", "productPrice");
+                        e1.setAttribute("value", finalList[i]["price"]);
+                        en.appendChild(e1);
+
+                    }
+
+                    for (i = 0; i < e0.length; i++) {
+                        en = e0[i];
+
+                        e1 = document.createElement("img");
+                        e1.setAttribute("src", finalList[i]["img"]);
+                        e1.setAttribute("class", "productImg");
+                        e1.setAttribute("alt", finalList[i]["name"]);
+                        e1.setAttribute("loading", "lazy");
+                        en.appendChild(e1);
+                    }
+
+                    for (i = 0; i < e0.length; i++) {
+                        en = e0[i];
+
+                        e1 = document.createElement("p");
+                        e1.setAttribute("class", "productName");
+                        e1.setAttribute("id", "productName");
+                        e1.innerHTML = finalList[i]["name"];
+                        en.appendChild(e1);
+                    }
+
+                    for (i = 0; i < e0.length; i++) {
+                        var en = e0[i];
+
+                        e1 = document.createElement("div");
+                        e1.setAttribute("class", "cartProductFlex");
+                        en.appendChild(e1);
+                    }
+
+                    e0 = document.querySelectorAll(".cartProductFlex");
+
+                    for (i = 0; i < e0.length; i++) {
+                        en = e0[i];
+
+                        e1 = document.createElement("p");
+                        e1.setAttribute("class", "productDisplayPrice");
+                        e1.setAttribute("id", "productDisplayPrice");
+                        e1.innerHTML = finalList[i]["displayPrice"];
+                        en.appendChild(e1);
+                    }
+
+                    for (i = 0; i < e0.length; i++) {
+                        en = e0[i];
+
+                        e1 = document.createElement("div");
+                        e1.setAttribute("class", "productDisplaySizeWrapper");
+                        en.appendChild(e1);
+                    }
+
+                    e0 = document.querySelectorAll(".productDisplaySizeWrapper");
+
+                    for (i = 0; i < e0.length; i++) {
+                        en = e0[i];
+
+                        e1 = document.createElement("p");
+                        e1.setAttribute("class", "productDisplaySize");
+                        e1.innerHTML = finalList[i]["size"];
+                        en.appendChild(e1);
+                    }
+
+                    e0 = document.getElementById("billerWrapper");
+
+                    for (i = 0; i <= listCount; i++) {
+
+                        if (finalList[i] !== undefined) {
+                            e1 = document.createElement("div");
+                            e1.setAttribute("class", "billerRow");
+                            e0.appendChild(e1);
+                        }
+
+                    }
+
+                    e0 = document.querySelectorAll(".billerRow");
+
+                    for (i = 0; i < e0.length; i++) {
+                        en = e0[i];
+
+                        e1 = document.createElement("p");
+                        e1.setAttribute("class", "billerName");
+                        e1.innerHTML = finalList[i]["name"];
+                        en.appendChild(e1);
+                    }
+
+                    for (i = 0; i < e0.length; i++) {
+                        en = e0[i];
+
+                        e1 = document.createElement("p");
+                        e1.setAttribute("class", "billerPrice");
+                        e1.innerHTML = finalList[i]["displayPrice"];
+                        en.appendChild(e1);
+                    }
+
+                    let total = 0;
+
+                    for (i = 0; i <= listCount; i++) {
+
+                        if (finalList[i] !== undefined) {
+                            total += parseInt(finalList[i]["price"])
+                        }
+
+                    }
+
+                    let gst = 0;
+
+                    if (total <= 1000) {
+                        gst = (5 / 100) * total;
+                    }
+
+                    else {
+                        gst = (12 / 100) * total;
+                    }
+
+                    let subtotal = gst + total;
+
+                    e0 = document.getElementById("billerWrapper");
+
+                    e1 = document.createElement("br");
+                    e0.appendChild(e1);
+
+                    let extras0 = ["GST", "Shipping", "Sub-Total"]
+                    let extras1 = [gst, "0", subtotal]
+
+                    for (i = 0; i < 3; i++) {
+                        e1 = document.createElement("div");
+                        e1.setAttribute("class", "billerRowExtra");
+                        e1.setAttribute("id", "biller" + [i]);
+                        e0.appendChild(e1);
+                    }
+
+                    for (i = 0; i < 3; i++) {
+
+                        e0 = document.getElementById("biller" + [i]);
+
+                        e1 = document.createElement("p");
+                        e1.setAttribute("class", "billerName");
+                        e1.innerHTML = extras0[i];
+                        e0.appendChild(e1);
+
+                    }
+
+                    for (i = 0; i < 3; i++) {
+                        e0 = document.getElementById("biller" + [i]);
+
+                        e1 = document.createElement("p");
+                        if (i === 2) {
+                            e1.setAttribute("class", "heroHeading");
+                        }
+                        else {
+                            e1.setAttribute("class", "billerPrice");
+                        }
+                        e1.innerHTML = "₹" + extras1[i];
+                        e0.appendChild(e1);
+                    }
+
+                    e0 = document.getElementById("billerWrapperN");
+
+                    e1 = document.createElement("br");
+                    e0.appendChild(e1);
+
+                    let passDataJson = JSON.parse(sessionStorage["passData"]);
+
+                    for (i = 0; i < 8; i++) {
+                        e1 = document.createElement("div");
+                        e1.setAttribute("class", "billerRowExtraN");
+                        e0.appendChild(e1);
+                    }
+
+                    e0 = document.querySelectorAll(".billerRowExtraN");
+
+                    e0[0].innerHTML = passDataJson["fname"] + " " + passDataJson["lname"];
+                    e0[1].innerHTML = passDataJson["pcode"] + " " + passDataJson["phone"];
+                    e0[2].innerHTML = passDataJson["email"];
+                    if (passDataJson["address2"].length > 0) {
+                        e0[3].innerHTML = "<br>" + passDataJson["address1"] + ", " + passDataJson["address2"];
+                    }
+                    else {
+                        e0[3].innerHTML = "<br>" + passDataJson["address1"];
+                    }
+                    if (passDataJson["landmark"].length > 0) {
+                        e0[4].innerHTML = "(" + passDataJson["landmark"] + ")";
+                    }
+                    else {
+                        e0[4].innerHTML = "";
+                    }
+                    e0[5].innerHTML = passDataJson["city"];
+                    e0[6].innerHTML = passDataJson["state"] + ", " + passDataJson["country"];
+                    e0[7].innerHTML = passDataJson["zip"];
+
+                    try {
+
+                        var slider = document.getElementById("confirm");
+
+                        slider.addEventListener("change", function () {
+                            if (slider.value >= 80) {
+                                slider.value = "100";
+                                window.location = "/payment_gateway_playground.html";
+                            }
+
+                            else {
+                                slider.value = "0";
+                            }
+                        });
+
+
+                    } catch (error) {
+
+                        console.log(error);
+
+                    }
+                }
+
+                else {
+                    document.getElementById("cartEmptyWrapper").style.display = "flex";
+                    document.getElementById("billerWrapper").style.display = "none";
+                    document.getElementById("billerWrapperN").style.display = "none";
+                }
+
+            })
+
+            .catch(err => {
+                console.error('An error ocurred: ', err);
+            });
+
     </script>
-    
+
+    <script>
+
+        function delFunc(id) {
+            var elem = document.getElementById(id);
+            sessionStorage.removeItem(id);
+            elem.remove();
+            location.reload();
+        }
+
+    </script>
+    <script src="static/js/cart.js"></script>
+    <script src="static/js/success.js" type="module"></script>
+
 </body>
+
 </html>

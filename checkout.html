@@ -22,7 +22,8 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="static/icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <meta name="description" content="Shop at STRADA 1949 for the best modern, high-quality streetwear. Our store offers a wide selection of premium clothing items, including t-shirts, sweatshirts, and jackets.">
+    <meta name="description"
+        content="Shop at STRADA 1949 for the best modern, high-quality streetwear. Our store offers a wide selection of premium clothing items, including t-shirts, sweatshirts, and jackets.">
     <script src="static/js/anime.min.js"></script>
     <link rel="stylesheet" href="static/css/base.css">
     <title>STRADA 1949 | Checkout</title>
@@ -67,7 +68,40 @@
 
 
 
-
+    <div class="gimmickWrapper" style="transform: translateY(0%);">
+        <div class="gimmick">
+            <div class="gimmickRow" id="gimmickRow1">
+                <p class="gimmickChip">Oversized T-Shirts</p>
+                <p class="gimmickChip">Hoodies</p>
+                <p class="gimmickChip">Joggers</p>
+                <p class="gimmickChip">Cargo Pants</p>
+                <p class="gimmickChip">Accessories</p>
+                <p class="gimmickChip">Denim Jeans</p>
+                <p class="gimmickChip">Flannels</p>
+                <p class="gimmickChip">Yankee's</p>
+            </div>
+            <div class="gimmickRow" id="gimmickRow2">
+                <p class="gimmickChip">Cargo Pants</p>
+                <p class="gimmickChip">Accessories</p>
+                <p class="gimmickChip">Denim Jeans</p>
+                <p class="gimmickChip">Oversized T-Shirts</p>
+                <p class="gimmickChip">Hoodies</p>
+                <p class="gimmickChip">Joggers</p>
+                <p class="gimmickChip">Flannels</p>
+                <p class="gimmickChip">Yankee's</p>
+            </div>
+            <div class="gimmickRow" id="gimmickRow3">
+                <p class="gimmickChip">Denim Jeans</p>
+                <p class="gimmickChip">Flannels</p>
+                <p class="gimmickChip">Yankee's</p>
+                <p class="gimmickChip">Oversized T-Shirts</p>
+                <p class="gimmickChip">Hoodies</p>
+                <p class="gimmickChip">Joggers</p>
+                <p class="gimmickChip">Cargo Pants</p>
+                <p class="gimmickChip">Accessories</p>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -81,20 +115,24 @@
             </div>
 
             <div class="fieldWrapper fieldFull">
-                <input type="text" class="couponInp" name="fname" placeholder="First Name" autocomplete="on" maxlength="50" required>
+                <input type="text" class="couponInp" name="fname" placeholder="First Name" autocomplete="on"
+                    maxlength="50" required>
             </div>
 
             <div class="fieldWrapper fieldFull">
-                <input type="text" class="couponInp" name="lname" placeholder="Last Name" autocomplete="on" maxlength="50" required>
+                <input type="text" class="couponInp" name="lname" placeholder="Last Name" autocomplete="on"
+                    maxlength="50" required>
             </div>
-            
+
             <div class="fieldWrapper fieldHalf">
                 <p class="couponInp couponInpPara">+91</p>
-                <input type="tel" class="couponInp" name="phone" placeholder="Phone Number" autocomplete="on" minlength="10" maxlength="10" required>
+                <input type="tel" class="couponInp" name="phone" placeholder="Phone Number" autocomplete="on"
+                    minlength="10" maxlength="10" required>
             </div>
-            
+
             <div class="fieldWrapper fieldFull">
-                <input type="email" class="couponInp" name="email" placeholder="E-mail Address" autocomplete="on" maxlength="50" required>
+                <input type="email" class="couponInp" name="email" placeholder="E-mail Address" autocomplete="on"
+                    maxlength="50" required>
             </div>
 
 
@@ -107,32 +145,39 @@
             </div>
 
             <div class="fieldWrapper fieldFull">
-                <input type="text" class="couponInp" name="address1" placeholder="Address Line 1" autocomplete="on" maxlength="100" required>
+                <input type="text" class="couponInp" name="address1" placeholder="Address Line 1" autocomplete="on"
+                    maxlength="100" required>
             </div>
 
             <div class="fieldWrapper fieldFull">
-                <input type="text" class="couponInp" name="address2" placeholder="Address Line 2  (Optional)" autocomplete="on" maxlength="100">
+                <input type="text" class="couponInp" name="address2" placeholder="Address Line 2  (Optional)"
+                    autocomplete="on" maxlength="100">
             </div>
 
             <div class="fieldWrapper fieldFull">
-                <input type="text" class="couponInp" name="landmark" placeholder="Landmark  (Optional)" autocomplete="on" maxlength="50">
+                <input type="text" class="couponInp" name="landmark" placeholder="Landmark  (Optional)"
+                    autocomplete="on" maxlength="50">
             </div>
 
             <div class="fieldWrapper fieldFull">
-                <input type="text" class="couponInp" name="city" placeholder="City" autocomplete="on" maxlength="50" required>
+                <input type="text" class="couponInp" name="city" placeholder="City" autocomplete="on" maxlength="50"
+                    required>
             </div>
-            
+
             <div class="fieldWrapper fieldHalf">
-                <input type="text" class="couponInp" name="state" placeholder="State" autocomplete="on" maxlength="50" required>
+                <input type="text" class="couponInp" name="state" placeholder="State" autocomplete="on" maxlength="50"
+                required>
                 <p class="couponInp couponInpPara">IN</p>
+            </div>
+
+            <div class="fieldWrapper fieldFull">
+                <input type="tel" class="couponInp" name="zip" placeholder="ZIP" autocomplete="on" minlength="6" maxlength="6"
+                    required>
             </div>
 
             <button type="submit" class="checkoutBtn" id="continueBtn">Continue</button>
         </form>
     </div>
-    
-    
-    <button class="checkoutBtn" id="continueBtnn">Continue</button>
 
 
 
@@ -146,10 +191,6 @@
         <p class="footerText">All Rights Reserved</p>
         <p class="footerText">&copy; STRADA 1949 Clothing</p>
     </div>
-
-    <script>
-        console.log(JSON.parse(sessionStorage["passVal"]));
-    </script>
 
     <script src="/static/js/checkout.js"></script>
 

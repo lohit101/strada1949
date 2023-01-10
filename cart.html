@@ -117,14 +117,9 @@
         <hr>
     </div>
 
-    <div class="couponWrapper">
-        <p class="heroHeading">%</p>
-        <input type="text" class="couponInp" id="couponInp" name="coupon" placeholder="Enter Discount Code"
-            maxlength="10">
-    </div>
+    <div class="couponWrapper" id="couponWrapper"></div>
 
     <button type="button" class="checkoutBtn" id="checkoutBtn">Proceed to Checkout</button>
-    <button type="button" class="checkoutBtn" id="checkoutBtnn">Remove Item</button>
 
 
 
@@ -203,6 +198,7 @@
                     cartEmptyWrapper.style.display = "none";
                     document.getElementById("billerWrapper").style.display = "flex";
                     document.getElementById("checkoutBtn").style.display = "flex";
+                    document.getElementById("couponWrapper").style.display = "flex";
 
                     var e0 = document.getElementById("productHolderWrapper");
 
@@ -366,7 +362,16 @@
 
                     }
 
-                    let gst = (5 / 100) * total;
+                    let gst = 0;
+
+                    if (total <= 1000) {
+                        gst = (5 / 100) * total;
+                    }
+
+                    else {
+                        gst = (12 / 100) * total;
+                    }
+
                     let subtotal = gst + total;
 
                     e0 = document.getElementById("billerWrapper");
@@ -374,12 +379,8 @@
                     e1 = document.createElement("br");
                     e0.appendChild(e1);
 
-                    let extras0 = ["GST (12%)", "Shipping", "Sub-Total"]
+                    let extras0 = ["GST", "Shipping", "Sub-Total"]
                     let extras1 = [gst, "0", subtotal]
-
-                    // e1 = document.createElement("div");
-                    // e1.setAttribute("class", "billerRowExtra");
-                    // e0.appendChild(e1);
 
                     for (i = 0; i < 3; i++) {
                         e1 = document.createElement("div");
@@ -413,14 +414,26 @@
                         e0.appendChild(e1);
                     }
 
+                    e0 = document.getElementById("couponWrapper");
+
+                    e1 = document.createElement("p");
+                    e1.setAttribute("class", "heroHeading");
+                    e1.innerHTML = "%";
+                    e0.appendChild(e1);
+
+                    e1 = document.createElement("input");
+                    e1.setAttribute("type", "text");
+                    e1.setAttribute("class", "couponInp");
+                    e1.setAttribute("id", "couponInp");
+                    e1.setAttribute("name", "coupon");
+                    e1.setAttribute("placeholder", "Enter Discount Code");
+                    e1.setAttribute("maxlength", "10");
+                    e0.appendChild(e1);
+
                     var checkoutBtn = document.getElementById("checkoutBtn");
 
                     checkoutBtn.addEventListener("click", () => {
-
-                        console.log(finalList);
                         sessionStorage["passVal"] = JSON.stringify(finalList);
-                        console.log(sessionStorage);
-                        console.log(JSON.parse(sessionStorage["passVal"]));
                         location.href = "/checkout.html";
 
                     });
@@ -430,6 +443,7 @@
                     document.getElementById("cartEmptyWrapper").style.display = "flex";
                     document.getElementById("billerWrapper").style.display = "none";
                     document.getElementById("checkoutBtn").style.display = "none";
+                    document.getElementById("couponWrapper").style.display = "none";
                 }
 
             })
