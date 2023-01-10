@@ -1000,9 +1000,11 @@ body {
     box-sizing: border-box;
 }
 
-.checkoutForm > div > .couponInp {
+.fieldWrapper {
     border-bottom: 1px solid white;
-    /* background: yellow; */
+}
+
+.checkoutForm > div > .couponInp {
     font-size: .75rem;
 }
 

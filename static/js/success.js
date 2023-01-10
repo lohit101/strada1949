@@ -26,7 +26,7 @@ if (windowLocation === "completion=true") {
 
     child = document.createElement("hr");
     parent.appendChild(child);
-    
+
     child = document.createElement("p");
     child.setAttribute("class", "heroHeading");
     child.innerHTML = "Order Confirmed";
@@ -42,7 +42,24 @@ if (windowLocation === "completion=true") {
     submission[0].value = passData["fname"] + " " + passData["lname"];
     submission[1].value = passData["pcode"] + " " + passData["phone"];
     submission[2].value = passData["email"];
-    submission[3].value = JSON.stringify(passVal);
+    
+    let nkList = Object.keys(passVal);
+
+    var nkListVal = 0;
+
+    for (let key in nkList) {
+        ++nkListVal;
+    }
+
+    var orderString = "";
+
+    for (var nk = 0; nk < nkListVal; nk++) {
+
+        orderString += "Product ID: " + passVal[nk]["productID"] + ", Name: " + passVal[nk]["name"] + ", Size: " + passVal[nk]["size"] + "          ";
+
+    }
+
+    submission[3].value = orderString;
 
     document.getElementById("submission").submit();
 
