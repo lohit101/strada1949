@@ -116,7 +116,7 @@ else {
                     'Authorization': 'Basic' + btoa('rzp_test_8QMh17vL5eGJtb:4DnraFidb1UbLXOqEgAqNaHE'),
                     'Access-Control-Allow-Origin': 'https://strada1949.studio',
                     'Access-Control-Allow-Credentials': 'true',
-                    "Access-Control-Allow-Headers" : "*",
+                    'Access-Control-Allow-Headers': 'Access-Control-Allow-Methods, Access-Control-Allow-Origin, Origin, Accept, Content-Type',
                 }),
                 body: JSON.stringify({
                     'amount': valTotal,
