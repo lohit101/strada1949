@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <script>
+        var options = {
+                "key": "rzp_test_8QMh17vL5eGJtb",
+                "amount": sessionStorage["valTotal"],
+                "currency": "INR",
+                "name": "Strada Clothing 1949",
+                "image": "https://s3.amazonaws.com/rzp-mobile/images/rzp.jpg",
+                "order_id": sessionStorage["order_id"],
+                "handler": function (response) {
+                    alert(response.razorpay_payment_id);
+                },
+                "callback_url" : "https://strada1949.studio/success.html",
+                "redirect" : true
+            };
+            var rzp1 = new Razorpay(options);
+            document.getElementById('rzp-button1').onclick = function (e) {
+                rzp1.open();
+                e.preventDefault();
+            }
+    </script>
+    
+</body>
+</html>
