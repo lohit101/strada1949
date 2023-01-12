@@ -1,5 +1,6 @@
 var windowLocation = window.location.href.split("?")[1];
 var confirmPayment = document.getElementById("confirmPayment");
+var confirma = document.getElementById("confirm");
 var confirmWrapper = document.getElementById("confirmWrapper");
 var confirmWrapperN = document.getElementById("confirmWrapperN");
 
@@ -79,6 +80,7 @@ else {
     confirmPayment.style.display = "flex";
     confirmWrapper.style.display = "none";
 
+    
     var valCount = 0;
     
     for (let key in JSON.parse(sessionStorage["passVal"])) {
@@ -101,13 +103,14 @@ else {
     
     console.log(valTotal);
     
-    confirmPayment.addEventListener("change", async() => {
-        if (confirmPayment.value >= 80) {
+    confirma.addEventListener("change", () => {
+        if (confirma.value >= 80) {
+            console.log("hello");
             
-            confirmPayment.value = "100";
+            confirma.value = "100";
             
             
-            await fetch('https://api.razorpay.com/v1/orders', {
+            fetch('https://api.razorpay.com/v1/orders', {
                 method: 'POST',
                 headers: new Headers({
                     'Authorization': 'Basic' + btoa('rzp_test_8QMh17vL5eGJtb:4DnraFidb1UbLXOqEgAqNaHE'),
@@ -131,7 +134,7 @@ else {
             }
             
         else {
-            confirmPayment.value = "0";
+            confirma.value = "0";
         }
     });
 }
