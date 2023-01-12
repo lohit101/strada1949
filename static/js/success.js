@@ -6,11 +6,65 @@ var confirmWrapperN = document.getElementById("confirmWrapperN");
 if (windowLocation === "completion=true") {
     confirmPayment.style.display = "flex";
     confirmWrapper.style.display = "none";
+
+    var valCount = 0;
+
+    for (let key in JSON.parse(sessionStorage["passVal"])) {
+        ++valCount;
+    }
+
+    var valTotal = 0;
+
+    for (var i = 0; i < valCount; i++) {
+        valTotal += parseInt(JSON.parse(sessionStorage["passVal"])[i]["price"]);
+    }
+
+    if (valTotal <= 1000) {
+        valTotal += (5 / 100) * valTotal;
+    }
+
+    else {
+        valTotal += (12 / 100) * valTotal;
+    }
+
+    console.log(valTotal);
+
+    confirmPayment.addEventListener("change", () => {
+        if (confirmPayment.value >= 80) {
+
+            confirmPayment.value = "100";
+
+
+            fetch('https://api.razorpay.com/v1/orders', {
+                method: 'POST',
+                headers: new Headers({
+                    'Authorization': 'Basic' + btoa('rzp_test_8QMh17vL5eGJtb:4DnraFidb1UbLXOqEgAqNaHE'),
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Credentials': 'true',
+                }),
+                body: JSON.stringify({
+                    'amount': valTotal,
+                    'currency': "INR",
+                    "receipt": "rc001"
+                })
+            })
+            .then((res) => {
+                console.log("res = " + res);
+                var result = res.json();
+                finalList["order_id"] = res.data.id;
+            })
+
+        }
+
+        else {
+            confirmPayment.value = "0";
+        }
+    });
 }
 
 else if (windowLocation === "completion=true&submission=true") {
-    confirmPayment.style.display = "none";
-    confirmWrapper.style.display = "flex";
+    confirmPayment.style.display = "flex";
+    confirmWrapper.style.display = "none";
 
     var passVal = JSON.parse(sessionStorage["passVal"]);
     var passData = JSON.parse(sessionStorage["passData"]);
@@ -47,7 +101,7 @@ else if (windowLocation === "completion=true&submission=true") {
     submission[0].value = passData["fname"] + " " + passData["lname"];
     submission[1].value = passData["pcode"] + " " + passData["phone"];
     submission[2].value = passData["email"];
-    
+
     let nkList = Object.keys(passVal);
 
     var nkListVal = 0;
