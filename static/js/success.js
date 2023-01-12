@@ -116,6 +116,7 @@ else {
                     'Authorization': 'Basic' + btoa('rzp_test_8QMh17vL5eGJtb:4DnraFidb1UbLXOqEgAqNaHE'),
                     'Access-Control-Allow-Origin': '*',
                     'Access-Control-Allow-Credentials': 'true',
+                    "Access-Control-Allow-Headers" : "*",
                 }),
                 body: JSON.stringify({
                     'amount': valTotal,
