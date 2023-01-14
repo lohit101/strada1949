@@ -244,11 +244,24 @@
 
                 var prodImgWrapper = document.getElementById("prodImgWrapper");
 
-                var elemP = document.createElement("img");
-                elemP.setAttribute("src", data[id]["img"]);
-                elemP.setAttribute("class", "prodImg");
-                elemP.setAttribute("alt", "Product Image");
-                prodImgWrapper.appendChild(elemP);
+                let listKey = Object.keys(data[id]["img"]);
+
+                var listCount = 0;
+
+                for (let key in listKey) {
+                    ++listCount;
+                }
+
+                console.log(listCount);
+
+                for (var k = 0; k < listCount; k++) {
+                    var elemP = document.createElement("img");
+                    elemP.setAttribute("src", data[id]["img"][k]);
+                    elemP.setAttribute("class", "prodImg");
+                    elemP.setAttribute("alt", "Product Image");
+                    prodImgWrapper.appendChild(elemP);
+                }
+
 
             })
 

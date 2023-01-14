@@ -1,28 +1,43 @@
 {
     "0" : {
         "productID" : "0",
-        "name" : "Yellow Oversized T-Shirt",
+        "name" : "Cole World Oversized T-Shirt",
         "price" : "1200",
         "displayPrice" : "₹1,200",
-        "img" : "./static/img/tshirt_yellow.png",
+        "img" : {
+            "0" : "./static/img/products/cole_world_front.png",
+            "1" : "./static/img/products/cole_world_back.png",
+            "2" : "./static/img/products/cole_world_crop0.png",
+            "3" : "./static/img/products/cole_world_crop1.png"
+        },
         "href" : "0"
     },
     
     "1" : {
         "productID" : "1",
-        "name" : "Black Oversized T-Shirt",
+        "name" : "Radiated Oversized T-Shirt",
         "price" : "1100",
         "displayPrice" : "₹1,100",
-        "img" : "./static/img/tshirt_black.png",
+        "img" : {
+            "0" : "/static/img/products/radiated_front.png",
+            "1" : "/static/img/products/radiated_back.png",
+            "2" : "/static/img/products/radiated_crop0.png",
+            "3" : "/static/img/products/radiated_crop1.png"
+        },
         "href" : "1"
     },
     
     "2" : {
         "productID" : "2",
-        "name" : "Pink Oversized T-Shirt",
-        "price" : "800",
-        "displayPrice" : "₹800",
-        "img" : "./static/img/tshirt_black.png",
+        "name" : "Zombified Oversized T-Shirt",
+        "price" : "1000",
+        "displayPrice" : "₹1,000",
+        "img" : {
+            "0" : "/static/img/products/zombified_front.png",
+            "1" : "/static/img/products/zombified_back.png",
+            "2" : "/static/img/products/zombified_crop0.png",
+            "3" : "/static/img/products/zombified_crop1.png"
+        },
         "href" : "2"
     }
 }

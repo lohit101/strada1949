@@ -541,15 +541,16 @@ body {
 
 .prodImgWrapper {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow: scroll;
+    padding: 0rem;
 }
 
 .prodImg {
-    width: 100%;
-    margin: 2rem;
+    width: 80%;
+    margin: 1rem;
 }
 
 .descRow {
