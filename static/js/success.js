@@ -123,7 +123,7 @@ else {
 
             let b64string = utoa(finalOrder);
 
-            fetch("http://lohit101.pythonanywhere.com/api/v0/payment/", {
+            fetch("https://lohit101.pythonanywhere.com/api/v0/payment/", {
 
                 method: 'POST',
                 body: b64string
