@@ -173,7 +173,7 @@
                     var elemDiv = productTagList[i];
 
                     var elemP = document.createElement("img");
-                    elemP.setAttribute("src", data[i]["img"]["0"]);
+                    elemP.setAttribute("src", data[i]["img"]["1"]);
                     elemP.setAttribute("class", "productImg");
                     elemP.setAttribute("loading", "lazy");
                     elemP.setAttribute("alt", "Product Image");
@@ -205,6 +205,24 @@
             .catch(err => {
                 console.error('An error ocurred: ', err);
             });
+
+    </script>
+
+    <script>
+
+        // setTimeout(function () {
+        //     var img1 = document.querySelectorAll("productImg");
+
+        //     console.log(img1);
+
+        //     for (var ifp = 0; ifp < img1.length; ifp++) {
+        //         console.log("hello");
+        //         img1[ifp].addEventListener("mousedown", () => {
+        //             setTimeout(function () {
+        //             }, 500);
+        //         });
+        //     }
+        // }, 10000);
 
     </script>
 

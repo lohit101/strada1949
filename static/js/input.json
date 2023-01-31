@@ -16,8 +16,8 @@
     "1" : {
         "productID" : "1",
         "name" : "Radiated Oversized T-Shirt",
-        "price" : "1100",
-        "displayPrice" : "₹1,100",
+        "price" : "1000",
+        "displayPrice" : "₹1,000",
         "img" : {
             "0" : "/static/img/products/radiated_front.png",
             "1" : "/static/img/products/radiated_back.png",
@@ -39,5 +39,31 @@
             "3" : "/static/img/products/zombified_crop1.png"
         },
         "href" : "2"
+    },
+
+    "3" : {
+        "productID" : "3",
+        "name" : "Subculture Network Oversized T-Shirt",
+        "price" : "1000",
+        "displayPrice" : "₹1,000",
+        "img" : {
+            "0" : "/static/img/products/subculture_network_front.png",
+            "1" : "/static/img/products/subculture_network_back.png",
+            "2" : "/static/img/products/subculture_network_crop0.png",
+            "3" : "/static/img/products/subculture_network_crop1.png"
+        },
+        "href" : "3"
+    },
+
+    "4" : {
+        "productID" : "4",
+        "name" : "Cactus Jack Oversized T-Shirt",
+        "price" : "1200",
+        "displayPrice" : "₹1,200",
+        "img" : {
+            "0" : "/static/img/products/cactus_jack_front.png",
+            "1" : "/static/img/products/cactus_jack_back.png"
+        },
+        "href" : "4"
     }
 }

@@ -171,6 +171,7 @@
         <p class="footerText">&copy; STRADA 1949 Clothing</p>
     </div>
 
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="static/js/app.js"></script>
     <script type="module">
 
@@ -268,7 +269,7 @@
                         en = e0[i];
 
                         e1 = document.createElement("img");
-                        e1.setAttribute("src", finalList[i]["img"]);
+                        e1.setAttribute("src", finalList[i]["img"][0]);
                         e1.setAttribute("class", "productImg");
                         e1.setAttribute("alt", finalList[i]["name"]);
                         e1.setAttribute("loading", "lazy");
