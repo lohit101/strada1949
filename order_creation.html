@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Creation</title>
+</head>
+
+<body>
+
+    <form action="/order.html" method="POST" id="submission" netlify>
+        <input class="hiddenInput" type="hidden" name="Name" value="">
+        <input class="hiddenInput" type="hidden" name="Phone" value="">
+        <input class="hiddenInput" type="hidden" name="Email" value="">
+        <input class="hiddenInput" type="hidden" name="Order" value="">
+        <input class="hiddenInput" type="hidden" name="Address" value="">
+    </form>
+
+    <script>
+        var passVal = JSON.parse(sessionStorage["passVal"]);
+        var passData = JSON.parse(sessionStorage["passData"]);
+
+        var submission = document.querySelectorAll(".hiddenInput");
+
+        submission[0].value = passData["fname"] + " " + passData["lname"];
+        submission[1].value = passData["pcode"] + " " + passData["phone"];
+        submission[2].value = passData["email"];
+
+        let nkList = Object.keys(passVal);
+
+        var nkListVal = 0;
+
+        for (let key in nkList) {
+            ++nkListVal;
+        }
+
+        var orderString = "";
+
+        for (var nk = 0; nk < nkListVal; nk++) {
+
+            orderString += "Product ID: " + passVal[nk]["productID"] + ", Name: " + passVal[nk]["name"] + ", Size: " + passVal[nk]["size"] + " // ";
+
+        }
+
+        submission[3].value = orderString;
+        submission[4].value = passData["address1"] + ", " + passData["address2"] + ", " + passData["landmark"] + ", " + passData["city"] + ", " + passData["state"] + ", " + passData["country"] + ", " + passData["zip"]
+
+        document.getElementById("submission").submit();
+    </script>
+
+</body>
+
+</html>
