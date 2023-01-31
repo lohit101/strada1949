@@ -144,7 +144,7 @@ else {
                     "description": "Payment Portal",
                     "image": "https://strada1949.studio/static/img/logo.png",
                     "order_id": res["rzp_order_id"],
-                    "callback_url": "http://strada1949.studio/success.html?completion=true",
+                    "callback_url": "https://strada1949.studio/success.html?completion=true",
                     "prefill": {
                         "name": res["name"],
                         "email": res["email"],
