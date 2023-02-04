@@ -74,9 +74,9 @@ else if (windowLocation === "completion=true&submission=true") {
     child.innerHTML = "Your order details has been sent to your E-mail. You can track your order with the link sent to you.";
     confirmWrapper.appendChild(child);
 
-    window.addEventListener("beforeunload", () => {
-        sessionStorage.clear();
-    });
+    // window.addEventListener("beforeunload", () => {
+    //     sessionStorage.clear();
+    // });
 
 }
 
@@ -128,17 +128,18 @@ else {
             let b64string = utoa(finalOrder);
 
             fetch("https://lohit101.pythonanywhere.com/api/v0/payment/", {
-
                 method: 'POST',
                 body: b64string
-
             })
             .then(response => response.text())
             .then(response => {
                 console.log(JSON.parse(response));
                 var res = JSON.parse(response);
-
-                console.log(String(res["rzp_order_id"]));
+                
+                sessionStorage["orderId"] = {
+                    "order_id": res["order_id"],
+                    "rzp_order_id": res["rzp_order_id"]
+                }
 
                 var options = {
                     "key": "rzp_test_ikXFnXSaD0nIcn",
@@ -148,8 +149,8 @@ else {
                     "description": "Payment Portal",
                     "image": "https://strada1949.studio/static/img/logo.png",
                     "order_id": res["rzp_order_id"],
-                    // "callback_url": "https://strada1949.studio/order_creation.html",
-                    "callback_url": "http://strada1949.studio/order_creation.html",
+                    "callback_url": "https://lohit101.pythonanywhere.com/api/v0/redirect-external",
+                    "redirect": true,
                     "prefill": {
                         "name": res["name"],
                         "email": res["email"],
@@ -157,6 +158,16 @@ else {
                     },
                     "theme": {
                         "color": "#000000"
+                    },
+                    "send_sms_hash": true,
+                    "allow_rotation": true,
+                    "rety": {
+                        "enabled": true
+                    },
+                    "notes": {
+                        "passVal": passVal,
+                        "passData": passData,
+                        "valTotal": valTotal
                     }
                 };
                 var rzp1 = new Razorpay(options);
