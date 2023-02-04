@@ -83,7 +83,10 @@ window.onscroll = () => {
     }
 }
 
-
+window.onload = function() {
+    document.getElementById("preloaderWrapper").style.opacity = "0";
+    document.getElementById("preloaderWrapper").style.pointerEvents = "none";
+}
 
 
 
