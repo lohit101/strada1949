@@ -21,13 +21,17 @@ menuBtn.addEventListener("click", () => {
     if (!menuToggle) {
         menuToggle = true;
         document.getElementById("menuTest").style.transform = "translate(0%, 0%)";
-        document.getElementById("menuTest").style.margin = ".5rem";
+        document.getElementById("menuTest").style.margin = "0rem";
+        document.getElementById("menuTest").style.opacity = "1";
+        document.getElementById("menuTest").style.pointerEvents = "all";
     }
-
+    
     else {
         menuToggle = false;
         document.getElementById("menuTest").style.transform = "translate(-100%, 0%)";
         document.getElementById("menuTest").style.margin = "0rem";
+        document.getElementById("menuTest").style.opacity = "0";
+        document.getElementById("menuTest").style.pointerEvents = "none";
     }
 });
 
@@ -48,12 +52,16 @@ window.onscroll = () => {
         menuToggle = false;
         document.getElementById("menuTest").style.transform = "translate(-100%, 0%)";
         document.getElementById("menuTest").style.margin = "0rem";
+        document.getElementById("menuTest").style.opacity = "0";
+        document.getElementById("menuTest").style.pointerEvents = "none";
     }
 
     else {
         menuToggle = false;
         document.getElementById("menuTest").style.transform = "translate(-100%, 0%)";
         document.getElementById("menuTest").style.margin = "0rem";
+        document.getElementById("menuTest").style.opacity = "0";
+        document.getElementById("menuTest").style.pointerEvents = "none";
 
         const timeline = anime.timeline({
             duration: 750,

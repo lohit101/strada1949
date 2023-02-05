@@ -27,6 +27,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 999;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, .65), rgba(0, 0, 0, 0));
 }
 
 .logo>img {
@@ -41,43 +42,40 @@ body {
     align-items: center;
     justify-content: center;
     height: 100%;
-    width: 5rem;
-    max-width: 5rem;
-    background-color: rgba(0, 0, 0, 0.90);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    -moz-backdrop-filter: blur(30px);
-    /* border: 1px solid white; */
+    width: 100%;
     border-radius: 10px;
     box-sizing: border-box;
     position: fixed;
     z-index: 998;
     transform: translate(-100%, 0%);
     transition: 500ms;
+    transition-timing-function: cubic-bezier(.17,.67,.45,1);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
 }
 
 .menuLinkWrapper {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 5rem;
-    height: 80%;
+    justify-content: center;
+    align-items: flex-start;
+    height: 20%;
+    width: 100%;
     margin: 10px;
     box-sizing: border-box;
-    overflow-y: scroll;
-    overflow-x: hidden;
 }
 
 .menuLink {
-    font-size: .5rem;
+    font-size: .75rem;
     padding: .5rem;
-    margin: 4rem;
     box-sizing: border-box;
     width: max-content;
     height: fit-content;
-    color: lightgray;
-    transform: rotate(-90deg);
+    color: darkgray;
+}
+
+.menuLinkActive {
+    color: white;
+    font-size: 1rem;
 }
 
 .hero {
