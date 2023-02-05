@@ -39,7 +39,7 @@ window.onscroll = () => {
         document.getElementById("heroHeading").style.opacity = 1 - (window.scrollY / 500);
         document.getElementById("heroSubheading").style.opacity = 1 - (window.scrollY / 500);
     }
-    
+
     catch (error) {
         console.log(error);
     }
@@ -83,12 +83,25 @@ window.onscroll = () => {
     }
 }
 
-window.onload = function() {
+window.onload = function () {
     document.getElementById("preloaderWrapper").style.opacity = "0";
     document.getElementById("preloaderWrapper").style.pointerEvents = "none";
 }
 
+var carousel = document.getElementById("prodImgWrapper");
+var carouselSlider = document.getElementById("carouselSlider");
 
+carousel.addEventListener("scroll", function () {
+    setTimeout(() => {
+        var barWidth = (carousel.scrollLeft * 100) / carousel.scrollWidth;
+        if (carousel.scrollLeft >= 0) {
+            carouselSlider.style.left = barWidth + "%";
+        }
+        else {
+            carouselSlider.style.left = barWidth + "%";
+        }
+    }, 10);
+});
 
 
 
