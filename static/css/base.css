@@ -49,7 +49,7 @@ body {
     z-index: 998;
     transform: translate(-100%, 0%);
     transition: 500ms;
-    transition-timing-function: cubic-bezier(.17,.67,.45,1);
+    transition-timing-function: cubic-bezier(.17, .67, .45, 1);
     background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
 }
 
@@ -574,6 +574,7 @@ body {
     background-color: white;
     position: relative;
     left: 0%;
+    border-radius: 50px;
 }
 
 .descRow {
@@ -1068,6 +1069,8 @@ body {
     bottom: 2rem;
     background-color: rgba(22, 22, 22, 0.5);
     backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    -moz-backdrop-filter: blur(30px);
     border: 2px solid white;
 }
 
