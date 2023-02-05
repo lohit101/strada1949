@@ -108,7 +108,7 @@ carousel.addEventListener("scroll", function () {
         else {
             carouselSlider.style.left = barWidth + "%";
         }
-    }, 10);
+    }, 1);
 });
 
 
