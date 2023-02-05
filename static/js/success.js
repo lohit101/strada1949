@@ -128,18 +128,15 @@ else {
             let b64string = utoa(finalOrder);
 
             fetch("https://lohit101.pythonanywhere.com/api/v0/payment/", {
-                method: 'POST',
+            method: 'POST',
                 body: b64string
             })
             .then(response => response.text())
             .then(response => {
                 console.log(JSON.parse(response));
                 var res = JSON.parse(response);
-                
-                sessionStorage["orderId"] = {
-                    "order_id": res["order_id"],
-                    "rzp_order_id": res["rzp_order_id"]
-                }
+
+                sessionStorage["orderId"] = res["order_id"];
 
                 var options = {
                     "key": "rzp_test_ikXFnXSaD0nIcn",

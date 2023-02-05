@@ -17,7 +17,6 @@
         <input class="hiddenInput" type="hidden" name="Order" value="">
         <input class="hiddenInput" type="hidden" name="Address" value="">
         <input class="hiddenInput" type="hidden" name="Order ID" value="">
-        <input class="hiddenInput" type="hidden" name="Razorpay Order ID" value="">
     </form>
 
     <script>
@@ -48,10 +47,11 @@
 
         submission[3].value = orderString;
         submission[4].value = passData["address1"] + ", " + passData["address2"] + ", " + passData["landmark"] + ", " + passData["city"] + ", " + passData["state"] + ", " + passData["country"] + ", " + passData["zip"]
-        submission[5].value = sessionStorage["orderId"]["order_id"];
-        submission[6].value = sessionStorage["orderId"]["rzp_order_id"];
+        submission[5].value = sessionStorage["orderId"];
 
-        document.getElementById("submission").submit();
+        console.log(sessionStorage["orderId"]);
+
+        // document.getElementById("submission").submit();
     </script>
 
 </body>
