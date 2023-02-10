@@ -20,18 +20,34 @@ menuBtn.addEventListener("click", () => {
 
     if (!menuToggle) {
         menuToggle = true;
-        document.getElementById("menuTest").style.transform = "translate(0%, 0%)";
-        document.getElementById("menuTest").style.margin = "0rem";
         document.getElementById("menuTest").style.opacity = "1";
         document.getElementById("menuTest").style.pointerEvents = "all";
+        document.getElementById("menuLinkWrapper").style.transition = "500ms ease-out";
+        document.getElementById("menuLinkWrapper").style.opacity = "1";
+        document.getElementById("tapetext1").style.transition = "450ms cubic-bezier(.1,.26,.26,1)";
+        document.getElementById("tapetext2").style.transition = "500ms cubic-bezier(.1,.26,.26,1)";
+        document.getElementById("tapetext1").style.top = "50%";
+        document.getElementById("tapetext2").style.top = "50%";
+        document.getElementById("tapetext1").style.left = "-20%";
+        document.getElementById("tapetext2").style.left = "-20%";
+        setTimeout(() => {
+            document.getElementById("tapetext1").style.opacity = "1";
+            document.getElementById("tapetext2").style.opacity = "1";
+        }, 300);
     }
     
     else {
         menuToggle = false;
-        document.getElementById("menuTest").style.transform = "translate(-100%, 0%)";
-        document.getElementById("menuTest").style.margin = "0rem";
-        document.getElementById("menuTest").style.opacity = "0";
-        document.getElementById("menuTest").style.pointerEvents = "none";
+        document.getElementById("menuLinkWrapper").style.transition = "250ms ease-out";
+        document.getElementById("menuLinkWrapper").style.opacity = "0";
+        setTimeout(() => {
+            document.getElementById("menuTest").style.opacity = "0";
+            document.getElementById("menuTest").style.pointerEvents = "none";
+        }, 300);
+        document.getElementById("tapetext1").style.top = "150%";
+        document.getElementById("tapetext2").style.top = "150%";
+        document.getElementById("tapetext1").style.left = "2.5%";
+        document.getElementById("tapetext2").style.left = "-40%";
     }
 });
 
@@ -50,18 +66,26 @@ window.onscroll = () => {
 
     if (!menuToggle) {
         menuToggle = false;
-        document.getElementById("menuTest").style.transform = "translate(-100%, 0%)";
-        document.getElementById("menuTest").style.margin = "0rem";
+        document.getElementById("menuLinkWrapper").style.transition = "250ms ease-out";
+        document.getElementById("menuLinkWrapper").style.opacity = "0";
         document.getElementById("menuTest").style.opacity = "0";
         document.getElementById("menuTest").style.pointerEvents = "none";
+        document.getElementById("tapetext1").style.top = "150%";
+        document.getElementById("tapetext2").style.top = "150%";
+        document.getElementById("tapetext1").style.left = "2.5%";
+        document.getElementById("tapetext2").style.left = "-40%";
     }
 
     else {
         menuToggle = false;
-        document.getElementById("menuTest").style.transform = "translate(-100%, 0%)";
-        document.getElementById("menuTest").style.margin = "0rem";
+        document.getElementById("menuLinkWrapper").style.transition = "250ms ease-out";
+        document.getElementById("menuLinkWrapper").style.opacity = "0";
         document.getElementById("menuTest").style.opacity = "0";
         document.getElementById("menuTest").style.pointerEvents = "none";
+        document.getElementById("tapetext1").style.top = "150%";
+        document.getElementById("tapetext2").style.top = "150%";
+        document.getElementById("tapetext1").style.left = "2.5%";
+        document.getElementById("tapetext2").style.left = "-40%";
 
         const timeline = anime.timeline({
             duration: 750,
@@ -101,7 +125,7 @@ var carouselSlider = document.getElementById("carouselSlider");
 
 carousel.addEventListener("scroll", function () {
     setTimeout(() => {
-        var barWidth = (carousel.scrollLeft * 100) / carousel.scrollWidth;
+        var barWidth = (carousel.scrollLeft * 100) / (carousel.scrollWidth - window.innerWidth);
         if (carousel.scrollLeft >= 0) {
             carouselSlider.style.left = barWidth + "%";
         }

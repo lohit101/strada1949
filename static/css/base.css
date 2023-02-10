@@ -40,17 +40,18 @@ body {
 .menuTest {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100%;
     width: 100%;
-    border-radius: 10px;
     box-sizing: border-box;
     position: fixed;
     z-index: 998;
-    transform: translate(-100%, 0%);
+    top: 0%;
     transition: 500ms;
     transition-timing-function: cubic-bezier(.17, .67, .45, 1);
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    background-color: rgba(0, 0, 0, 0.75);
+    opacity: 0;
+    pointer-events: none;
 }
 
 .menuLinkWrapper {
@@ -58,15 +59,17 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    height: 20%;
-    width: 100%;
-    margin: 10px;
+    height: 100%;
+    width: 50%;
     box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 1);
+    opacity: 0;
+    /* background-color: lightblue; */
 }
 
 .menuLink {
     font-size: .75rem;
-    padding: .5rem;
+    padding: .5rem 1rem;
     box-sizing: border-box;
     width: max-content;
     height: fit-content;
@@ -575,6 +578,7 @@ body {
     position: relative;
     left: 0%;
     border-radius: 50px;
+    transform: translateX(-50%);
 }
 
 .descRow {
@@ -741,6 +745,7 @@ body {
     padding: 0rem .25rem;
     box-sizing: border-box;
     border-radius: 10px;
+    box-shadow: 0px 0px 60px black, 0px 0px 40px black, 0px 0px 20px black, 0px 2rem 0px black;
 }
 
 .swipeInstruction {
@@ -876,6 +881,12 @@ body {
     font-weight: 500;
     position: sticky;
     bottom: 2rem;
+    box-shadow: 0px 0px 60px black, 0px 0px 40px black, 0px 0px 20px black, 0px 2rem 0px black;
+}
+
+.checkoutBtn:hover {
+    background-color: white;
+    color: black;
 }
 
 
@@ -906,7 +917,7 @@ body {
 }
 
 .tumbleweedWrapper {
-    width: 30%;
+    width: 25%;
     overflow: hidden;
     animation: tumbleWrapAnim 5s linear infinite;
 }
@@ -942,22 +953,28 @@ body {
 }
 
 .cartPara {
-    font-size: 1rem;
+    font-size: .8rem;
     margin: 1rem 0rem 0rem 0rem;
-    color: rgb(123, 123, 123);
+    color: white;
 }
 
 .goShoppingBtn {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #1e1e1e;
-    width: 80%;
-    height: 4rem;
-    margin: 2rem 10%;
+    background-color: black;
+    border: 2px solid white;
+    width: 70%;
+    margin: 1rem 10%;
+    padding: 1rem;
     border-radius: 10px;
-    color: whitesmoke;
-    font-size: 1rem;
+    color: white;
+    font-size: .8rem;
+}
+
+.goShoppingBtn:hover {
+    background-color: white;
+    color: black;
 }
 
 
@@ -1170,7 +1187,7 @@ body {
     display: flex;
     justify-content: flex-start;
     min-width: 30%;
-    height: 2.5px;
+    height: .25rem;
     border-radius: 50px;
     background-color: gray;
     animation: preloader 3s ease-in-out infinite;
@@ -1210,4 +1227,94 @@ body {
     100% {
         width: 0%;
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.polaroidWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.polaroid {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: white;
+    width: 8rem;
+    height: 9.5rem;
+    margin: 1rem;
+    padding: .25rem .25rem 2.15rem .25rem;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.polaroidInner {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: #212121;
+}
+
+.polaroid:nth-child(1) {
+    transform: rotate(2deg);
+}
+
+.polaroid:nth-child(2) {
+    transform: rotate(16deg);
+}
+
+.polaroid:nth-child(3) {
+    transform: rotate(-11deg);
+}
+
+
+
+
+
+.tape {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.tapetext {
+    background-image: linear-gradient(to right, transparent, yellow, transparent);
+    min-width: 100vh;
+    max-height: 100vh;
+    height: 2.5rem;
+    overflow: hidden;
+    position: absolute;
+    top: 150%;
+    z-index: 99999;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+}
+
+.tapetext:nth-child(1) {
+    left: 2.5%;
+    transform: rotate(-92deg);
+}
+
+.tapetext:nth-child(2) {
+    left: -40%;
+    transform: rotate(-82deg);
 }

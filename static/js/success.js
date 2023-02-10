@@ -128,7 +128,7 @@ else {
             let b64string = utoa(finalOrder);
 
             fetch("https://lohit101.pythonanywhere.com/api/v0/payment/", {
-            method: 'POST',
+                method: 'POST',
                 body: b64string
             })
             .then(response => response.text())
@@ -138,37 +138,20 @@ else {
 
                 sessionStorage["orderId"] = res["order_id"];
 
-                var options = {
-                    "key": "rzp_test_ikXFnXSaD0nIcn",
-                    "amount": res["amount"],
-                    "currency": "INR",
-                    "name": "STRADA 1949 Clothing",
-                    "description": "Payment Portal",
-                    "image": "https://strada1949.studio/static/img/logo.png",
-                    "order_id": res["rzp_order_id"],
-                    "callback_url": "https://lohit101.pythonanywhere.com/api/v0/redirect-external",
-                    "redirect": true,
-                    "prefill": {
-                        "name": res["name"],
-                        "email": res["email"],
-                        "contact": res["phone"]
-                    },
-                    "theme": {
-                        "color": "#000000"
-                    },
-                    "send_sms_hash": true,
-                    "allow_rotation": true,
-                    "rety": {
-                        "enabled": true
-                    },
-                    "notes": {
-                        "passVal": passVal,
-                        "passData": passData,
-                        "valTotal": valTotal
-                    }
-                };
-                var rzp1 = new Razorpay(options);
-                rzp1.open();
+                var getVal = document.querySelectorAll(".getVal");
+                
+                let coutCount = 0;
+                
+                for (let key in res) {
+                    getVal[coutCount].value = res[key];
+                    ++coutCount;
+                }
+            })
+            .then(response => {
+                var orderForm = document.getElementById("orderForm");
+
+                orderForm.submit();
+
             })
             .catch((err) => console.log(err));
         }
