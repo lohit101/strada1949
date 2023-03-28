@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
     <title>Order Creation</title>
 </head>
 
@@ -19,7 +20,34 @@
         <input class="hiddenInput" type="hidden" name="Order ID" value="">
     </form>
 
-    <script>
+    <script type="module">
+
+        let passValL = JSON.stringify(sessionStorage["passVal"]);
+        let passDataL = JSON.stringify(sessionStorage["passData"]);
+        let valTotalL = JSON.stringify(sessionStorage["total"]);
+
+        let finalOrder = passDataL + "|" + passValL + "|" + valTotalL;
+
+        function atou(b64) {
+            return decodeURIComponent(escape(atob(b64)));
+        }
+
+        function utoa(data) {
+            return btoa(unescape(encodeURIComponent(data)));
+        }
+
+        let b64string = utoa(finalOrder);
+
+        fetch("https://lohit101.pythonanywhere.com/api/v0/redirect-external/", {
+            method: 'POST',
+            body: b64string
+        })
+            .then(response => response.text())
+            .then(response => {
+
+            })
+
+
         var passVal = JSON.parse(sessionStorage["passVal"]);
         var passData = JSON.parse(sessionStorage["passData"]);
 

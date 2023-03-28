@@ -127,7 +127,8 @@ else {
 
             let b64string = utoa(finalOrder);
 
-            fetch("https://lohit101.pythonanywhere.com/api/v0/payment/", {
+            // fetch("https://lohit101.pythonanywhere.com/api/v0/payment/", {
+            fetch("http://127.0.0.1:5000/api/v0/payment/", {
                 method: 'POST',
                 body: b64string
             })
@@ -136,7 +137,7 @@ else {
                 console.log(JSON.parse(response));
                 var res = JSON.parse(response);
 
-                sessionStorage["orderId"] = res["order_id"];
+                sessionStorage["orderId"] = res["txnid"];
 
                 var getVal = document.querySelectorAll(".getVal");
                 
@@ -151,7 +152,6 @@ else {
                 var orderForm = document.getElementById("orderForm");
 
                 orderForm.submit();
-
             })
             .catch((err) => console.log(err));
         }

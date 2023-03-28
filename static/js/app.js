@@ -1,5 +1,5 @@
-const menuClose = "M36.5,98.5H54.621A1.79,1.79,0,0,0,56.7,96.593a2.046,2.046,0,0,0-2.075-2.155H33.589a1.737,1.737,0,0,1-1.96-1.93,1.759,1.759,0,0,1,1.96-1.953h17.8";
-const menuOpen = "M54.621,94.439H33.589";
+const menuClose = "M-20916.344-23455.738h22.5";
+const menuOpen = "M-20916.344-23455.738h9.188";
 
 const menuBtn = document.querySelector("#menuBtn");
 
