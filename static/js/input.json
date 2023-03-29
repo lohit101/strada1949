@@ -1,9 +1,9 @@
 {
     "0" : {
         "productID" : "0",
-        "name" : "Cole World Oversized T-Shirt",
-        "price" : "1200",
-        "displayPrice" : "₹1,200",
+        "name" : "[ TEST PRODUCT ]",
+        "price" : "0",
+        "displayPrice" : "₹0",
         "img" : {
             "0" : "./static/img/products/cole_world_front.png",
             "1" : "./static/img/products/cole_world_back.png",
@@ -15,9 +15,9 @@
     
     "1" : {
         "productID" : "1",
-        "name" : "Radiated Oversized T-Shirt",
-        "price" : "1000",
-        "displayPrice" : "₹1,000",
+        "name" : "[ TEST PRODUCT ]",
+        "price" : "0",
+        "displayPrice" : "₹0",
         "img" : {
             "0" : "/static/img/products/radiated_front.png",
             "1" : "/static/img/products/radiated_back.png",
@@ -29,9 +29,9 @@
     
     "2" : {
         "productID" : "2",
-        "name" : "Zombified Oversized T-Shirt",
-        "price" : "1000",
-        "displayPrice" : "₹1,000",
+        "name" : "[ TEST PRODUCT ]",
+        "price" : "0",
+        "displayPrice" : "₹0",
         "img" : {
             "0" : "/static/img/products/zombified_front.png",
             "1" : "/static/img/products/zombified_back.png",
@@ -43,9 +43,9 @@
 
     "3" : {
         "productID" : "3",
-        "name" : "Subculture Network Oversized T-Shirt",
-        "price" : "1000",
-        "displayPrice" : "₹1,000",
+        "name" : "[ TEST PRODUCT ]",
+        "price" : "0",
+        "displayPrice" : "₹0",
         "img" : {
             "0" : "/static/img/products/subculture_network_front.png",
             "1" : "/static/img/products/subculture_network_back.png",
@@ -57,9 +57,9 @@
 
     "4" : {
         "productID" : "4",
-        "name" : "Cactus Jack Oversized T-Shirt",
-        "price" : "1200",
-        "displayPrice" : "₹1,200",
+        "name" : "[ TEST PRODUCT ]",
+        "price" : "0",
+        "displayPrice" : "₹0",
         "img" : {
             "0" : "/static/img/products/cactus_jack_front.png",
             "1" : "/static/img/products/cactus_jack_back.png"
