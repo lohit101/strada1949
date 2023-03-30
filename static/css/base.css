@@ -303,6 +303,50 @@ body {
     }
 }
 
+.categoriesWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0rem .5rem;
+    margin-bottom: 4rem;
+}
+
+.catRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.catLink {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    margin: .5rem;
+    padding: .75rem;
+    color: white;
+    border-radius: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* border: 2px solid white; */
+    /* filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.25)); */
+}
+
+.catRow:nth-child(2) > .catLink {
+    aspect-ratio: 2;
+}
+
+.cartPara {
+    mix-blend-mode: difference;
+    color: transparent;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+}
+
 .productCard {
     display: flex;
     flex-direction: column;
