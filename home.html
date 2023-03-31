@@ -38,12 +38,6 @@
             <a href="/products.html" class="menuLink">ACCESSORIES</a>
             <a href="/products.html" class="menuLink">ALL PRODUCTS</a>
         </div>
-        <div class="polaroidWrapper">
-            <div class="tape">
-                <div id="tapetext1" class="tapetext">CAUTION! CAUTION! CAUTION! CAUTION! CAUTION! CAUTION!</div>
-                <div id="tapetext2" class="tapetext">CAUTION! CAUTION! CAUTION! CAUTION! CAUTION! CAUTION!</div>
-            </div>
-        </div>
     </div>
 
     <nav class="navbar">
@@ -199,6 +193,24 @@
 
 
 
+    <div class="stack" style="--stacks: 3; margin-top: 5rem;">
+        <span style="--index: 0; font-size: 2.5rem;">Shop More</span>
+        <span style="--index: 1; font-size: 2.5rem;">Shop More</span>
+        <span style="--index: 2; font-size: 2.5rem;">Shop More</span>
+    </div>
+
+
+
+    <div class="productHolderWrapper productHolderCarousel" id="productHolderCarousel">
+    </div>
+
+
+
+
+
+
+
+
 
     <div class="newsletter">
         <h3 class="sectionHeading">Subscribe</h3>
@@ -320,6 +332,88 @@
 
     <script src="static/js/app.js"></script>
     <script src="static/js/home.js"></script>
+
+    <script type="module">
+        fetch('/static/js/input.json')
+            .then(response => response.json())
+            .then(data => {
+
+                var count = 0;
+
+                for (let key in data) {
+                    ++count;
+                }
+
+                var keys = Object.keys(data);
+
+                const variable = keys.length;
+                const counta = [];
+
+                for (let i = 0; i < 4; i++) {
+                    const randomNumber = Math.floor(Math.random() * (variable + 1));
+                    counta.push(randomNumber);
+                }
+
+                console.log(counta);
+
+                for (var i = 0; i <= counta.length - 1; i++) {
+                    var productHolderWrapper = document.getElementById("productHolderCarousel");
+
+                    var elemDiv = document.createElement("div");
+                    elemDiv.setAttribute("class", "productHolder");
+                    productHolderWrapper.appendChild(elemDiv);
+                }
+
+                var elemDivList = document.querySelectorAll(".productHolder");
+
+                for (var i = 0; i < elemDivList.length; i++) {
+                    var elemDiv = elemDivList[i];
+
+                    var elemP = document.createElement("a");
+                    elemP.setAttribute("href", "/product.html?id=" + counta[i]);
+                    elemP.setAttribute("class", "productTag");
+                    elemDiv.appendChild(elemP);
+                }
+
+                var productTagList = document.querySelectorAll(".productTag");
+
+                for (var i = 0; i < productTagList.length; i++) {
+                    var elemDiv = productTagList[i];
+
+                    var elemP = document.createElement("img");
+                    elemP.setAttribute("src", data[counta[i]]["img"]["1"]);
+                    elemP.setAttribute("class", "productImg");
+                    elemP.setAttribute("loading", "lazy");
+                    elemP.setAttribute("alt", "Product Image");
+                    elemDiv.appendChild(elemP);
+                }
+
+                for (var i = 0; i < productTagList.length; i++) {
+                    var elemDiv = productTagList[i];
+
+                    var elemP = document.createElement("p");
+                    elemP.appendChild(document.createTextNode(data[counta[i]]["name"]));
+                    elemP.setAttribute("class", "productName");
+                    elemP.setAttribute("id", "productName");
+                    elemDiv.appendChild(elemP);
+                }
+
+                for (var i = 0; i < productTagList.length; i++) {
+                    var elemDiv = productTagList[i];
+
+                    var elemP = document.createElement("p");
+                    elemP.appendChild(document.createTextNode(data[counta[i]]["displayPrice"]));
+                    elemP.setAttribute("class", "productDisplayPrice");
+                    elemP.setAttribute("id", "productDisplayPrice");
+                    elemDiv.appendChild(elemP);
+                }
+
+            })
+
+            .catch(err => {
+                console.error('An error ocurred: ', err);
+            });
+    </script>
 
 </body>
 

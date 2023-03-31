@@ -1,68 +1,70 @@
 {
     "0" : {
         "productID" : "0",
-        "name" : "[ TEST PRODUCT ]",
+        "name" : "[ SAMPLE PRODUCT ]",
         "price" : "0",
         "displayPrice" : "₹0",
         "img" : {
-            "0" : "./static/img/products/cole_world_front.png",
-            "1" : "./static/img/products/cole_world_back.png",
-            "2" : "./static/img/products/cole_world_crop0.png",
-            "3" : "./static/img/products/cole_world_crop1.png"
+            "0" : "./static/img/products/front.png",
+            "1" : "./static/img/products/back.png",
+            "2" : "./static/img/products/graphic.png",
+            "3" : "./static/img/products/arial.png"
         },
         "href" : "0"
     },
     
     "1" : {
         "productID" : "1",
-        "name" : "[ TEST PRODUCT ]",
+        "name" : "[ SAMPLE PRODUCT ]",
         "price" : "0",
         "displayPrice" : "₹0",
         "img" : {
-            "0" : "/static/img/products/radiated_front.png",
-            "1" : "/static/img/products/radiated_back.png",
-            "2" : "/static/img/products/radiated_crop0.png",
-            "3" : "/static/img/products/radiated_crop1.png"
+            "0" : "/static/img/products/front.png",
+            "1" : "/static/img/products/back.png",
+            "2" : "/static/img/products/graphic.png",
+            "3" : "/static/img/products/arial.png"
         },
         "href" : "1"
     },
     
     "2" : {
         "productID" : "2",
-        "name" : "[ TEST PRODUCT ]",
+        "name" : "[ SAMPLE PRODUCT ]",
         "price" : "0",
         "displayPrice" : "₹0",
         "img" : {
-            "0" : "/static/img/products/zombified_front.png",
-            "1" : "/static/img/products/zombified_back.png",
-            "2" : "/static/img/products/zombified_crop0.png",
-            "3" : "/static/img/products/zombified_crop1.png"
+            "0" : "/static/img/products/front.png",
+            "1" : "/static/img/products/back.png",
+            "2" : "/static/img/products/graphic.png",
+            "3" : "/static/img/products/arial.png"
         },
         "href" : "2"
     },
 
     "3" : {
         "productID" : "3",
-        "name" : "[ TEST PRODUCT ]",
+        "name" : "[ SAMPLE PRODUCT ]",
         "price" : "0",
         "displayPrice" : "₹0",
         "img" : {
-            "0" : "/static/img/products/subculture_network_front.png",
-            "1" : "/static/img/products/subculture_network_back.png",
-            "2" : "/static/img/products/subculture_network_crop0.png",
-            "3" : "/static/img/products/subculture_network_crop1.png"
+            "0" : "/static/img/products/front.png",
+            "1" : "/static/img/products/back.png",
+            "2" : "/static/img/products/graphic.png",
+            "3" : "/static/img/products/arial.png"
         },
         "href" : "3"
     },
 
     "4" : {
         "productID" : "4",
-        "name" : "[ TEST PRODUCT ]",
+        "name" : "[ SAMPLE PRODUCT ]",
         "price" : "0",
         "displayPrice" : "₹0",
         "img" : {
-            "0" : "/static/img/products/cactus_jack_front.png",
-            "1" : "/static/img/products/cactus_jack_back.png"
+            "0" : "/static/img/products/front.png",
+            "1" : "/static/img/products/back.png",
+            "2" : "/static/img/products/graphic.png",
+            "3" : "/static/img/products/arial.png"
         },
         "href" : "4"
     }

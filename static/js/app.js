@@ -24,16 +24,6 @@ menuBtn.addEventListener("click", () => {
         document.getElementById("menuTest").style.pointerEvents = "all";
         document.getElementById("menuLinkWrapper").style.transition = "500ms ease-out";
         document.getElementById("menuLinkWrapper").style.opacity = "1";
-        document.getElementById("tapetext1").style.transition = "450ms cubic-bezier(.1,.26,.26,1)";
-        document.getElementById("tapetext2").style.transition = "500ms cubic-bezier(.1,.26,.26,1)";
-        document.getElementById("tapetext1").style.top = "50%";
-        document.getElementById("tapetext2").style.top = "50%";
-        document.getElementById("tapetext1").style.left = "-20%";
-        document.getElementById("tapetext2").style.left = "-20%";
-        setTimeout(() => {
-            document.getElementById("tapetext1").style.opacity = "1";
-            document.getElementById("tapetext2").style.opacity = "1";
-        }, 300);
     }
     
     else {
@@ -44,10 +34,6 @@ menuBtn.addEventListener("click", () => {
             document.getElementById("menuTest").style.opacity = "0";
             document.getElementById("menuTest").style.pointerEvents = "none";
         }, 300);
-        document.getElementById("tapetext1").style.top = "150%";
-        document.getElementById("tapetext2").style.top = "150%";
-        document.getElementById("tapetext1").style.left = "2.5%";
-        document.getElementById("tapetext2").style.left = "-40%";
     }
 });
 
@@ -70,10 +56,6 @@ window.onscroll = () => {
         document.getElementById("menuLinkWrapper").style.opacity = "0";
         document.getElementById("menuTest").style.opacity = "0";
         document.getElementById("menuTest").style.pointerEvents = "none";
-        document.getElementById("tapetext1").style.top = "150%";
-        document.getElementById("tapetext2").style.top = "150%";
-        document.getElementById("tapetext1").style.left = "2.5%";
-        document.getElementById("tapetext2").style.left = "-40%";
     }
 
     else {
@@ -82,10 +64,6 @@ window.onscroll = () => {
         document.getElementById("menuLinkWrapper").style.opacity = "0";
         document.getElementById("menuTest").style.opacity = "0";
         document.getElementById("menuTest").style.pointerEvents = "none";
-        document.getElementById("tapetext1").style.top = "150%";
-        document.getElementById("tapetext2").style.top = "150%";
-        document.getElementById("tapetext1").style.left = "2.5%";
-        document.getElementById("tapetext2").style.left = "-40%";
 
         const timeline = anime.timeline({
             duration: 750,

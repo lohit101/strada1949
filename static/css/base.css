@@ -420,6 +420,7 @@ body {
     flex-direction: column;
     color: white;
     padding: 1rem;
+    margin-top: 5rem;
     /* background-color: pink */
 }
 
@@ -494,6 +495,16 @@ body {
     grid-template-columns: 1fr 1fr;
 }
 
+.productHolderCarousel {
+    display: flex;
+    overflow: scroll;
+}
+
+.productHolderCarousel > .productHolder {
+    padding: .5rem;
+    margin: 0rem 1rem;
+}
+
 .productHolder {
     display: flex;
     flex-direction: column;
@@ -505,6 +516,10 @@ body {
 .productName {
     margin: 1rem 0rem;
     color: white;
+    width: 100%;
+    height: 2.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .cartProductFlex {
