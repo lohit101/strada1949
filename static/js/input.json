@@ -15,29 +15,28 @@
     
     "1" : {
         "productID" : "1",
-        "name" : "DB_01 Oversized T-Shirt",
+        "name" : "DB_01 Oversized T-Shirt [Vanta]",
         "price" : "1199",
         "displayPrice" : "₹1,199",
         "img" : {
-            "0" : "/static/img/products/db01_front.png",
-            "1" : "/static/img/products/db01_back.png",
-            "2" : "/static/img/products/db01_graphic.png",
-            "3" : "/static/img/products/db01_sleeve.png",
-            "4" : "/static/img/products/db01_arial.png"
+            "0" : "/static/img/products/db01_front_black.png",
+            "1" : "/static/img/products/db01_back_black.png",
+            "2" : "/static/img/products/db01_graphic_black.png",
+            "3" : "/static/img/products/db01_sleeve_black.png",
+            "4" : "/static/img/products/db01_arial_black.png"
         },
         "href" : "1"
     },
     
     "2" : {
         "productID" : "2",
-        "name" : "[ SAMPLE PRODUCT ]",
-        "price" : "0",
-        "displayPrice" : "₹0",
+        "name" : "DB_01 Oversized T-Shirt [Blizzard]",
+        "price" : "1199",
+        "displayPrice" : "₹1,199",
         "img" : {
-            "0" : "/static/img/products/test_front.png",
-            "1" : "/static/img/products/test_back.png",
-            "2" : "/static/img/products/test_graphic.png",
-            "3" : "/static/img/products/test_arial.png"
+            "0" : "/static/img/products/db01_front_white.png",
+            "1" : "/static/img/products/db01_back_white.png",
+            "2" : "/static/img/products/db01_arial_white.png"
         },
         "href" : "2"
     },
@@ -48,10 +47,10 @@
         "price" : "0",
         "displayPrice" : "₹0",
         "img" : {
-            "0" : "/static/img/products/db01_front.png",
-            "1" : "/static/img/products/db01_back.png",
-            "2" : "/static/img/products/db01_graphic.png",
-            "3" : "/static/img/products/db01_arial.png"
+            "0" : "/static/img/products/test_front.png",
+            "1" : "/static/img/products/test_back.png",
+            "2" : "/static/img/products/test_graphic.png",
+            "3" : "/static/img/products/test_arial.png"
         },
         "href" : "3"
     },
