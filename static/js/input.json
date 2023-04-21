@@ -43,14 +43,14 @@
 
     "3" : {
         "productID" : "3",
-        "name" : "[ SAMPLE PRODUCT ]",
-        "price" : "0",
-        "displayPrice" : "₹0",
+        "name" : "Thrasher Oversized T-Shirt [Vanta]",
+        "price" : "1199",
+        "displayPrice" : "₹1,199",
         "img" : {
-            "0" : "/static/img/products/test_front.png",
-            "1" : "/static/img/products/test_back.png",
-            "2" : "/static/img/products/test_graphic.png",
-            "3" : "/static/img/products/test_arial.png"
+            "0" : "/static/img/products/thrasher_front.png",
+            "1" : "/static/img/products/thrasher_back.png",
+            "2" : "/static/img/products/thrasher_graphic.png",
+            "3" : "/static/img/products/thrasher_arial.png"
         },
         "href" : "3"
     },
@@ -67,5 +67,33 @@
             "3" : "/static/img/products/test_arial.png"
         },
         "href" : "4"
+    },
+
+    "5" : {
+        "productID" : "5",
+        "name" : "[ SAMPLE PRODUCT ]",
+        "price" : "0",
+        "displayPrice" : "₹0",
+        "img" : {
+            "0" : "/static/img/products/test_front.png",
+            "1" : "/static/img/products/test_back.png",
+            "2" : "/static/img/products/test_graphic.png",
+            "3" : "/static/img/products/test_arial.png"
+        },
+        "href" : "5"
+    },
+
+    "6" : {
+        "productID" : "6",
+        "name" : "[ SAMPLE PRODUCT ]",
+        "price" : "0",
+        "displayPrice" : "₹0",
+        "img" : {
+            "0" : "/static/img/products/test_front.png",
+            "1" : "/static/img/products/test_back.png",
+            "2" : "/static/img/products/test_graphic.png",
+            "3" : "/static/img/products/test_arial.png"
+        },
+        "href" : "6"
     }
 }
