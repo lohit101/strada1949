@@ -127,7 +127,6 @@ else {
 
             let b64string = utoa(finalOrder);
 
-            // fetch("http://127.0.0.1:5000/api/v0/payment/", {
             fetch("https://lohit101.pythonanywhere.com/api/v0/payment/", {
                 method: 'POST',
                 body: b64string
