@@ -256,13 +256,19 @@
     <div class="footer">
         <p class="footerText">All Rights Reserved</p>
         <p class="footerText">&copy; STRADA 1949 Clothing</p>
+        <div class="footerlinks">
+            <a href="/about.html" class="footerlink">About</a>
+            <a href="/contact.html" class="footerlink">Contact</a>
+            <a href="/privacy-policy.html" class="footerlink">Privacy & Terms</a>
+        </div>
     </div>
 
     <script type="module">
 
-        fetch('/static/js/input.json')
+        fetch('https://lohit101.pythonanywhere.com/api/v1/products')
             .then(response => response.json())
             .then(data => {
+                console.log(data);
 
                 var count = 0;
 
@@ -276,7 +282,7 @@
 
                 for (var en = 0; en <= 2; en++) {
                     var e2 = document.createElement("a");
-                    e2.setAttribute("href", "/product.html?id=" + keys[en]);
+                    e2.setAttribute("href", "/product.html?id=" + data[en]["pid"]);
                     e2.setAttribute("class", "createdAnchor");
                     e1.appendChild(e2);
                 }
@@ -297,8 +303,8 @@
                     enn = e1[en];
 
                     e2 = document.createElement("img");
-                    e2.setAttribute("src", data[en]["img"]["0"]);
-                    e2.setAttribute("alt", data[en]["name"]);
+                    e2.setAttribute("src", "./static/img/products/" + data[en]["img0"]);
+                    e2.setAttribute("alt", data[en]["pname"]);
                     e2.setAttribute("class", "productImg");
                     e2.setAttribute("loading", "lazy");
                     enn.appendChild(e2);
@@ -325,12 +331,12 @@
 
                     e2 = document.createElement("li");
                     e2.setAttribute("class", "testli");
-                    e2.innerHTML = data[en]["name"];
+                    e2.innerHTML = data[en]["pname"];
                     enn.appendChild(e2);
 
                     e2 = document.createElement("li");
                     e2.setAttribute("class", "testli");
-                    e2.innerHTML = data[en]["name"];
+                    e2.innerHTML = data[en]["pname"];
                     enn.appendChild(e2);
                 }
 
@@ -343,9 +349,10 @@
     <script src="static/js/home.js"></script>
 
     <script type="module">
-        fetch('/static/js/input.json')
+        fetch('https://lohit101.pythonanywhere.com/api/v1/products')
             .then(response => response.json())
             .then(data => {
+                console.log(data);
 
                 var count = 0;
 
@@ -355,7 +362,9 @@
 
                 var keys = Object.keys(data);
 
-                const variable = keys.length;
+                console.log(data.length);
+
+                const variable = data.length;
                 const counta = [];
 
                 for (let i = 0; i < 4; i++) {
@@ -379,7 +388,7 @@
                     var elemDiv = elemDivList[i];
 
                     var elemP = document.createElement("a");
-                    elemP.setAttribute("href", "/product.html?id=" + counta[i]);
+                    elemP.setAttribute("href", "/product.html?id=" + data[i]["pid"]);
                     elemP.setAttribute("class", "productTag");
                     elemDiv.appendChild(elemP);
                 }
@@ -390,7 +399,7 @@
                     var elemDiv = productTagList[i];
 
                     var elemP = document.createElement("img");
-                    elemP.setAttribute("src", data[counta[i]]["img"]["1"]);
+                    elemP.setAttribute("src", "./static/img/products/" + data[counta[i]]["img1"]);
                     elemP.setAttribute("class", "productImg");
                     elemP.setAttribute("loading", "lazy");
                     elemP.setAttribute("alt", "Product Image");
@@ -401,7 +410,7 @@
                     var elemDiv = productTagList[i];
 
                     var elemP = document.createElement("p");
-                    elemP.appendChild(document.createTextNode(data[counta[i]]["name"]));
+                    elemP.appendChild(document.createTextNode(data[counta[i]]["pname"]));
                     elemP.setAttribute("class", "productName");
                     elemP.setAttribute("id", "productName");
                     elemDiv.appendChild(elemP);
@@ -411,7 +420,7 @@
                     var elemDiv = productTagList[i];
 
                     var elemP = document.createElement("p");
-                    elemP.appendChild(document.createTextNode(data[counta[i]]["displayPrice"]));
+                    elemP.appendChild(document.createTextNode(data[counta[i]]["inrdisplay"]));
                     elemP.setAttribute("class", "productDisplayPrice");
                     elemP.setAttribute("id", "productDisplayPrice");
                     elemDiv.appendChild(elemP);

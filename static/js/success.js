@@ -94,7 +94,7 @@ else {
     var valTotal = 0;
 
     for (var i = 0; i < valCount; i++) {
-        valTotal += parseInt(JSON.parse(sessionStorage["passVal"])[i]["price"]);
+        valTotal += parseInt(JSON.parse(sessionStorage["passVal"])[0]["inrprice"]);
     }
 
     if (valTotal <= 1000) {
@@ -102,44 +102,40 @@ else {
     }
 
     else {
-        valTotal += (12 / 100) * valTotal;
+        valTotal += (5 / 100) * valTotal;
     }
 
-    sessionStorage["total"] = valTotal
+    sessionStorage["total"] = valTotal;
 
     confirma.addEventListener("change", () => {
         if (confirma.value >= 80) {
             confirma.value = "100";
 
-            let passVal = JSON.stringify(sessionStorage["passVal"]);
-            let passData = JSON.stringify(sessionStorage["passData"]);
-            let valTotal = JSON.stringify(sessionStorage["total"]);
+            let passVal = JSON.parse(sessionStorage["passVal"]);
+            let passData = JSON.parse(sessionStorage["passData"]);
+            let total = JSON.parse(sessionStorage["total"]);
 
-            let finalOrder = passData + "|" + passVal + "|" + valTotal;
+            let finalOrder = {
+                passData,
+                passVal,
+                total
+            };
 
-            function atou(b64) {
-                return decodeURIComponent(escape(atob(b64)));
-            }
-
-            function utoa(data) {
-                return btoa(unescape(encodeURIComponent(data)));
-            }
-
-            let b64string = utoa(finalOrder);
-
-            fetch("https://lohit101.pythonanywhere.com/api/v0/payment/", {
+            fetch("https://lohit101.pythonanywhere.com/api/v1/payment/", {
                 method: 'POST',
-                body: b64string
+                body: JSON.stringify(finalOrder),
+                headers: {
+                    "Content-Type": "application/json",
+                }
             })
-            .then(response => response.text())
+            .then(response => response.json())
             .then(response => {
-                console.log(JSON.parse(response));
-                var res = JSON.parse(response);
+                console.log(response);
+                var res = response;
 
                 sessionStorage["orderId"] = res["txnid"];
 
                 var getVal = document.querySelectorAll(".getVal");
-                
                 let coutCount = 0;
                 
                 for (let key in res) {
@@ -149,7 +145,6 @@ else {
             })
             .then(response => {
                 var orderForm = document.getElementById("orderForm");
-
                 orderForm.submit();
             })
             .catch((err) => console.log(err));

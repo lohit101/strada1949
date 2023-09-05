@@ -37,6 +37,8 @@ menuBtn.addEventListener("click", () => {
     }
 });
 
+var lastScroll = 0;
+
 window.onscroll = () => {
 
     try {
@@ -90,6 +92,17 @@ window.onscroll = () => {
             var list = headingList[i];
             list.scrollTop = (headingList[i].scrollHeight - 75);
         }
+    }
+
+    var buyWindow = document.getElementById("buyWindow");
+
+    if (window.scrollY >= lastScroll) {
+        buyWindow.style.transform = "translateY(100%)";
+        lastScroll = window.scrollY;
+    }
+    else {
+        buyWindow.style.transform = "translateY(0%)";
+        lastScroll = window.scrollY;
     }
 }
 

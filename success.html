@@ -180,7 +180,7 @@
         <input type="hidden" name="furl" value="https://strada1949.studio/success.html?order=failed" />
     </form>
 
-    <form action="http://lohit101.pythonanywhere.com/api/v0/redirect/external" id="orderForm"></form>
+    <!-- <form action="http://lohit101.pythonanywhere.com/api/v0/redirect/external" id="orderForm"></form> -->
 
 
 
@@ -196,23 +196,34 @@
     <div class="footer">
         <p class="footerText">All Rights Reserved</p>
         <p class="footerText">&copy; STRADA 1949 Clothing</p>
+        <div class="footerlinks">
+            <a href="/about.html" class="footerlink">About</a>
+            <a href="/contact.html" class="footerlink">Contact</a>
+            <a href="/privacy-policy.html" class="footerlink">Privacy & Terms</a>
+        </div>
     </div>
 
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="static/js/app.js"></script>
     <script type="module">
 
-        fetch('/static/js/input.json')
+        let BASE_URL = 'https://lohit101.pythonanywhere.com/api/v1/';
+
+        fetch(BASE_URL + 'products')
             .then(response => response.json())
             .then(data => {
+                console.log(data);
 
-                var count = 0;
+                var count = data.length;
+                var keys = "";
 
-                for (let key in data) {
-                    ++count;
+                for (var q = 0; q <= count - 1; q++) {
+                    keys += "/" + data[q]["pid"];
                 }
 
-                var keys = Object.keys(data);
+                keys = keys.split("/");
+                keys.splice(0, 1);
+                
                 var log = Object.keys(sessionStorage);
 
                 var finalList = {};
@@ -224,7 +235,7 @@
 
                         if (log[s2] === keys[s1]) {
                             finalList[xnum] = data[s1];
-                            finalList[xnum]["size"] = sessionStorage[s1].split(",")[1];
+                            finalList[xnum]["size"] = sessionStorage[log[s2]].split(",")[1];
                             ++xnum;
                         }
 
@@ -232,7 +243,6 @@
                 }
 
                 let listKey = Object.keys(finalList);
-
                 var listCount = 0;
 
                 for (let key in listKey) {
@@ -252,7 +262,7 @@
                         if (finalList[i] !== undefined) {
                             var e1 = document.createElement("div");
                             e1.setAttribute("class", "productHolder");
-                            e1.setAttribute("id", finalList[i]["productID"]);
+                            e1.setAttribute("id", finalList[i]["pid"]);
                             e0.appendChild(e1);
                         }
 
@@ -265,7 +275,7 @@
 
                         e1 = document.createElement("a");
                         e1.setAttribute("class", "createdAnchor");
-                        e1.setAttribute("href", "product.html?id=" + finalList[i]["productID"]);
+                        e1.setAttribute("href", "product.html?id=" + finalList[i]["pid"]);
                         en.appendChild(e1);
                     }
 
@@ -277,7 +287,7 @@
                         e1 = document.createElement("input");
                         e1.setAttribute("type", "hidden");
                         e1.setAttribute("class", "productID");
-                        e1.setAttribute("value", finalList[i]["productID"]);
+                        e1.setAttribute("value", finalList[i]["pid"]);
                         en.appendChild(e1);
                     }
 
@@ -287,7 +297,7 @@
                         e1 = document.createElement("input");
                         e1.setAttribute("type", "hidden");
                         e1.setAttribute("class", "productPrice");
-                        e1.setAttribute("value", finalList[i]["price"]);
+                        e1.setAttribute("value", finalList[i]["inrprice"]);
                         en.appendChild(e1);
 
                     }
@@ -296,9 +306,9 @@
                         en = e0[i];
 
                         e1 = document.createElement("img");
-                        e1.setAttribute("src", finalList[i]["img"][0]);
+                        e1.setAttribute("src", "./static/img/products/" + finalList[i]["img0"]);
                         e1.setAttribute("class", "productImg");
-                        e1.setAttribute("alt", finalList[i]["name"]);
+                        e1.setAttribute("alt", finalList[i]["pname"]);
                         e1.setAttribute("loading", "lazy");
                         en.appendChild(e1);
                     }
@@ -309,7 +319,7 @@
                         e1 = document.createElement("p");
                         e1.setAttribute("class", "productName");
                         e1.setAttribute("id", "productName");
-                        e1.innerHTML = finalList[i]["name"];
+                        e1.innerHTML = finalList[i]["pname"];
                         en.appendChild(e1);
                     }
 
@@ -329,7 +339,7 @@
                         e1 = document.createElement("p");
                         e1.setAttribute("class", "productDisplayPrice");
                         e1.setAttribute("id", "productDisplayPrice");
-                        e1.innerHTML = finalList[i]["displayPrice"];
+                        e1.innerHTML = finalList[i]["inrdisplay"];
                         en.appendChild(e1);
                     }
 
@@ -371,7 +381,7 @@
 
                         e1 = document.createElement("p");
                         e1.setAttribute("class", "billerName");
-                        e1.innerHTML = finalList[i]["name"];
+                        e1.innerHTML = finalList[i]["pname"];
                         en.appendChild(e1);
                     }
 
@@ -380,7 +390,7 @@
 
                         e1 = document.createElement("p");
                         e1.setAttribute("class", "billerPrice");
-                        e1.innerHTML = finalList[i]["displayPrice"];
+                        e1.innerHTML = finalList[i]["inrdisplay"];
                         en.appendChild(e1);
                     }
 
@@ -389,7 +399,7 @@
                     for (i = 0; i <= listCount; i++) {
 
                         if (finalList[i] !== undefined) {
-                            total += parseInt(finalList[i]["price"])
+                            total += parseInt(finalList[i]["inrprice"])
                         }
 
                     }
@@ -401,7 +411,7 @@
                     }
 
                     else {
-                        gst = (12 / 100) * total;
+                        gst = (5 / 100) * total;
                     }
 
                     let subtotal = gst + total;

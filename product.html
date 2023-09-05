@@ -17,11 +17,11 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-51LM5K5VT0"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-    gtag('config', 'G-51LM5K5VT0');
+        gtag('config', 'G-51LM5K5VT0');
     </script>
     <script src="static/js/anime.min.js"></script>
     <link rel="stylesheet" href="static/css/base.css">
@@ -171,7 +171,7 @@
 
 
 
-    <div class="buyWindow">
+    <div class="buyWindow" id="buyWindow">
         <div class="windowPrice buyElement">
             <p class="heroSubheading">Price:</p>
             <p class="heroHeading" id="productPrice"></p>
@@ -215,73 +215,78 @@
     <div class="footer">
         <p class="footerText">All Rights Reserved</p>
         <p class="footerText">&copy; STRADA 1949 Clothing</p>
+        <div class="footerlinks">
+            <a href="/about.html" class="footerlink">About</a>
+            <a href="/contact.html" class="footerlink">Contact</a>
+            <a href="/privacy-policy.html" class="footerlink">Privacy & Terms</a>
+        </div>
     </div>
 
     <script src="static/js/app.js"></script>
     <script src="static/js/home.js"></script>
+
     <script>
 
         let paramString = window.location.href.split('?')[1];
         let queryString = new URLSearchParams(paramString);
+        let BASE_URL = 'https://lohit101.pythonanywhere.com/api/v1/';
 
-        for (let pair of queryString.entries()) {
-            var id = pair[1];
-        }
-
-        fetch('/static/js/input.json')
+        fetch(BASE_URL + 'display/product/' + paramString.replace("id=", ""))
             .then(response => response.json())
             .then(data => {
 
-                document.title = "STRADA 1949 | " + data[id]["name"];
+                document.title = "STRADA 1949 | " + data[0]["fields"]["pname"];
 
                 var stack = document.getElementById("stack");
 
                 var elemP = document.createElement("input");
                 elemP.setAttribute("type", "hidden");
                 elemP.setAttribute("id", "productID");
-                elemP.setAttribute("value", id);
+                elemP.setAttribute("value", data[0]["pk"]);
                 stack.appendChild(elemP);
 
                 var elemP = document.createElement("span");
-                elemP.setAttribute("style", "--index: 0; font-size: 3rem;");
+                elemP.setAttribute("style", "--index: 0; font-size: 2rem;");
                 elemP.setAttribute("id", "productHeading");
-                elemP.appendChild(document.createTextNode(data[id]["name"]));
+                elemP.appendChild(document.createTextNode(data[0]["fields"]["pname"]));
                 stack.appendChild(elemP);
 
                 var elemP = document.createElement("span");
-                elemP.setAttribute("style", "--index: 1; font-size: 3rem;");
-                elemP.appendChild(document.createTextNode(data[id]["name"]));
+                elemP.setAttribute("style", "--index: 1; font-size: 2rem;");
+                elemP.appendChild(document.createTextNode(data[0]["fields"]["pname"]));
                 stack.appendChild(elemP);
 
                 var elemP = document.createElement("span");
-                elemP.setAttribute("style", "--index: 2; font-size: 3rem;");
-                elemP.appendChild(document.createTextNode(data[id]["name"]));
+                elemP.setAttribute("style", "--index: 2; font-size: 2rem;");
+                elemP.appendChild(document.createTextNode(data[0]["fields"]["pname"]));
                 stack.appendChild(elemP);
 
                 var productPrice = document.getElementById("productPrice");
 
-                productPrice.appendChild(document.createTextNode(data[id]["displayPrice"]));
+                productPrice.appendChild(document.createTextNode(data[0]["fields"]["inrdisplay"]));
 
                 var prodImgWrapper = document.getElementById("prodImgWrapper");
 
-                let listKey = Object.keys(data[id]["img"]);
+                for (var k = 0; k < 10; k++) {
+                    var num = "img"
+                    num += k;
+                    num = String(num);
 
-                var listCount = 0;
-
-                for (let key in listKey) {
-                    ++listCount;
+                    if (data[0]["fields"][num] != null) {
+                        var elemP = document.createElement("img");
+                        elemP.setAttribute("src", "./static/img/products/" + data[0]["fields"][num]);
+                        elemP.setAttribute("class", "prodImg");
+                        elemP.setAttribute("alt", "Product Image");
+                        prodImgWrapper.appendChild(elemP);
+                    }
                 }
 
-                console.log(listCount);
+                var session = sessionStorage.getItem(data[0]["pk"]);
 
-                for (var k = 0; k < listCount; k++) {
-                    var elemP = document.createElement("img");
-                    elemP.setAttribute("src", data[id]["img"][k]);
-                    elemP.setAttribute("class", "prodImg");
-                    elemP.setAttribute("alt", "Product Image");
-                    prodImgWrapper.appendChild(elemP);
+                if (sessionStorage.hasOwnProperty(data[0]["pk"])) {
+                    document.getElementById("buyWindow").style.opacity = "0";
+                    document.getElementById("buyWindow").style.pointerEvents = "none";
                 }
-
 
             })
 
@@ -289,34 +294,7 @@
                 console.error('An error ocurred: ', err);
             });
 
-    </script>
-
-    <script>
-
-        try {
-
-            var session = sessionStorage.getItem(id);
-
-            if (session) {
-                document.querySelector(".buyWindow").style.opacity = "0";
-                document.querySelector(".buyWindow").style.pointerEvents = "none";
-            }
-
-            else {
-            }
-
-        }
-
-        catch (error) {
-
-            console.log("Error: " + error);
-
-        }
-
-    </script>
-
-    <script type="module">
-        fetch('/static/js/input.json')
+        fetch(BASE_URL + 'products')
             .then(response => response.json())
             .then(data => {
 
@@ -331,12 +309,12 @@
                 const variable = keys.length;
                 const counta = [];
 
+                console.log(count);
+
                 for (let i = 0; i < 4; i++) {
                     const randomNumber = Math.floor(Math.random() * (variable + 1));
                     counta.push(randomNumber);
                 }
-
-                console.log(counta);
 
                 for (var i = 0; i <= counta.length - 1; i++) {
                     var productHolderWrapper = document.getElementById("productHolderCarousel");
@@ -348,11 +326,13 @@
 
                 var elemDivList = document.querySelectorAll(".productHolder");
 
-                for (var i = 0; i < elemDivList.length; i++) {
+                console.log(data);
+
+                for (var i = 0; i < elemDivList.length - 1; i++) {
                     var elemDiv = elemDivList[i];
 
                     var elemP = document.createElement("a");
-                    elemP.setAttribute("href", "/product.html?id=" + counta[i]);
+                    elemP.setAttribute("href", "/product?id=" + data[counta[i]]["pid"]);
                     elemP.setAttribute("class", "productTag");
                     elemDiv.appendChild(elemP);
                 }
@@ -363,7 +343,7 @@
                     var elemDiv = productTagList[i];
 
                     var elemP = document.createElement("img");
-                    elemP.setAttribute("src", data[counta[i]]["img"]["1"]);
+                    elemP.setAttribute("src", "./static/img/products/" + data[counta[i]]["img1"]);
                     elemP.setAttribute("class", "productImg");
                     elemP.setAttribute("loading", "lazy");
                     elemP.setAttribute("alt", "Product Image");
@@ -374,7 +354,7 @@
                     var elemDiv = productTagList[i];
 
                     var elemP = document.createElement("p");
-                    elemP.appendChild(document.createTextNode(data[counta[i]]["name"]));
+                    elemP.appendChild(document.createTextNode(data[counta[i]]["pname"]));
                     elemP.setAttribute("class", "productName");
                     elemP.setAttribute("id", "productName");
                     elemDiv.appendChild(elemP);
@@ -384,7 +364,7 @@
                     var elemDiv = productTagList[i];
 
                     var elemP = document.createElement("p");
-                    elemP.appendChild(document.createTextNode(data[counta[i]]["displayPrice"]));
+                    elemP.appendChild(document.createTextNode(data[counta[i]]["inrdisplay"]));
                     elemP.setAttribute("class", "productDisplayPrice");
                     elemP.setAttribute("id", "productDisplayPrice");
                     elemDiv.appendChild(elemP);
@@ -395,6 +375,7 @@
             .catch(err => {
                 console.error('An error ocurred: ', err);
             });
+
     </script>
 
 </body>

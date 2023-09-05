@@ -147,22 +147,22 @@
     <div class="footer">
         <p class="footerText">All Rights Reserved</p>
         <p class="footerText">&copy; STRADA 1949 Clothing</p>
+        <div class="footerlinks">
+            <a href="/about.html" class="footerlink">About</a>
+            <a href="/contact.html" class="footerlink">Contact</a>
+            <a href="/privacy-policy.html" class="footerlink">Privacy & Terms</a>
+        </div>
     </div>
 
     <script src="static/js/app.js"></script>
     <script type="module">
 
-        fetch('/static/js/input.json')
+        let BASE_URL = 'https://lohit101.pythonanywhere.com/api/v1/';
+
+        fetch(BASE_URL + 'products')
             .then(response => response.json())
             .then(data => {
-
-                var count = 0;
-
-                for (let key in data) {
-                    ++count;
-                }
-
-                var keys = Object.keys(data);
+                var count = data.length;
 
                 for (var i = 0; i <= count - 1; i++) {
                     var productHolderWrapper = document.getElementById("productHolderWrapper");
@@ -178,7 +178,7 @@
                     var elemDiv = elemDivList[i];
 
                     var elemP = document.createElement("a");
-                    elemP.setAttribute("href", "/product.html?id=" + keys[i]);
+                    elemP.setAttribute("href", "/product.html?id=" + data[i]["pid"]);
                     elemP.setAttribute("class", "productTag");
                     elemDiv.appendChild(elemP);
                 }
@@ -189,7 +189,7 @@
                     var elemDiv = productTagList[i];
 
                     var elemP = document.createElement("img");
-                    elemP.setAttribute("src", data[i]["img"]["1"]);
+                    elemP.setAttribute("src", "./static/img/products/" + data[i]["img1"]);
                     elemP.setAttribute("class", "productImg");
                     elemP.setAttribute("loading", "lazy");
                     elemP.setAttribute("alt", "Product Image");
@@ -200,7 +200,7 @@
                     var elemDiv = productTagList[i];
 
                     var elemP = document.createElement("p");
-                    elemP.appendChild(document.createTextNode(data[i]["name"]));
+                    elemP.appendChild(document.createTextNode(data[i]["pname"]));
                     elemP.setAttribute("class", "productName");
                     elemP.setAttribute("id", "productName");
                     elemDiv.appendChild(elemP);
@@ -210,7 +210,7 @@
                     var elemDiv = productTagList[i];
 
                     var elemP = document.createElement("p");
-                    elemP.appendChild(document.createTextNode(data[i]["displayPrice"]));
+                    elemP.appendChild(document.createTextNode(data[i]["inrdisplay"]));
                     elemP.setAttribute("class", "productDisplayPrice");
                     elemP.setAttribute("id", "productDisplayPrice");
                     elemDiv.appendChild(elemP);
